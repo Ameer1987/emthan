@@ -197,4 +197,3 @@ class Term
         return $this->year;
     }
 }
-

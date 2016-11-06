@@ -81,4 +81,3 @@ class SubBookType
         return $this->subBookContainerType;
     }
 }
-

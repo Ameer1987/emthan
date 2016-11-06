@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Brovas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Receiveddate</th>
+                <th>Sentdate</th>
+                <th>Expecteddate</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brova in brovas %}
+            <tr>
+                <td><a href="{{ path('brova_show', { 'id': brova.id }) }}">{{ brova.item }}</a></td>
+                <td>{% if brova.receivedDate %}{{ brova.receivedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if brova.sentDate %}{{ brova.sentDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if brova.expectedDate %}{{ brova.expectedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if brova.createdAt %}{{ brova.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if brova.updatedAt %}{{ brova.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ brova.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('brova_show', { 'id': brova.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('brova_edit', { 'id': brova.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('brova_new') }}">Create a new brova</a>
+        </li>
+    </ul>
+{% endblock %}

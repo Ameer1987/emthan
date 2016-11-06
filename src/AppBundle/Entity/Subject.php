@@ -197,4 +197,3 @@ class Subject
         return $this->subLevel;
     }
 }
-

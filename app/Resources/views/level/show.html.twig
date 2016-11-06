@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Level</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Item</th>
+                <td>{{ level.item }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if level.createdAt %}{{ level.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Createdby</th>
+                <td>{{ level.createdBy }}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if level.updatedAt %}{{ level.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedby</th>
+                <td>{{ level.updatedBy }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ level.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('level_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('level_edit', { 'id': level.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

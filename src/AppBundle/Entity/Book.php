@@ -284,4 +284,3 @@ class Book
         return $this->subject;
     }
 }
-

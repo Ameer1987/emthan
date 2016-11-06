@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Subbooktypes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subBookType in subBookTypes %}
+            <tr>
+                <td><a href="{{ path('subbooktype_show', { 'id': subBookType.id }) }}">{{ subBookType.item }}</a></td>
+                <td>{{ subBookType.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('subbooktype_show', { 'id': subBookType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('subbooktype_edit', { 'id': subBookType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('subbooktype_new') }}">Create a new subBookType</a>
+        </li>
+    </ul>
+{% endblock %}

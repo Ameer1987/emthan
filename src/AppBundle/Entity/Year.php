@@ -168,4 +168,3 @@ class Year
         return $this->id;
     }
 }
-

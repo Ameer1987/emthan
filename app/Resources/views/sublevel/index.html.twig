@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Sublevels list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Createdby</th>
+                <th>Createdat</th>
+                <th>Updatedby</th>
+                <th>Updatedat</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for subLevel in subLevels %}
+            <tr>
+                <td><a href="{{ path('sublevel_show', { 'id': subLevel.id }) }}">{{ subLevel.item }}</a></td>
+                <td>{{ subLevel.createdBy }}</td>
+                <td>{% if subLevel.createdAt %}{{ subLevel.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ subLevel.updatedBy }}</td>
+                <td>{% if subLevel.updatedAt %}{{ subLevel.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ subLevel.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('sublevel_show', { 'id': subLevel.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('sublevel_edit', { 'id': subLevel.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('sublevel_new') }}">Create a new subLevel</a>
+        </li>
+    </ul>
+{% endblock %}

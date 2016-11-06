@@ -197,4 +197,3 @@ class Level
         return $this->category;
     }
 }
-

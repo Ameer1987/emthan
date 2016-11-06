@@ -197,4 +197,3 @@ class Cover
         return $this->book;
     }
 }
-

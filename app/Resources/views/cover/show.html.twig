@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cover</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Colors</th>
+                <td>{{ cover.colors }}</td>
+            </tr>
+            <tr>
+                <th>Solofanmatly</th>
+                <td>{% if cover.solofanMatly %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Solofanlamea</th>
+                <td>{% if cover.solofanLamea %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>{{ cover.notes }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ cover.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cover_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('cover_edit', { 'id': cover.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -52,4 +52,3 @@ class UserGroup
         return $this->id;
     }
 }
-

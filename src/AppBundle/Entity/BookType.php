@@ -52,4 +52,3 @@ class BookType
         return $this->id;
     }
 }
-

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Brova</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Item</th>
+                <td>{{ brova.item }}</td>
+            </tr>
+            <tr>
+                <th>Receiveddate</th>
+                <td>{% if brova.receivedDate %}{{ brova.receivedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Sentdate</th>
+                <td>{% if brova.sentDate %}{{ brova.sentDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Expecteddate</th>
+                <td>{% if brova.expectedDate %}{{ brova.expectedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if brova.createdAt %}{{ brova.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if brova.updatedAt %}{{ brova.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ brova.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('brova_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('brova_edit', { 'id': brova.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

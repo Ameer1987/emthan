@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Year</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Item</th>
+                <td>{{ year.item }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if year.createdAt %}{{ year.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Createdby</th>
+                <td>{{ year.createdBy }}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if year.updatedAt %}{{ year.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedby</th>
+                <td>{{ year.updatedBy }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ year.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('year_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('year_edit', { 'id': year.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

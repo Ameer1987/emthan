@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Terms list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Createdby</th>
+                <th>Createdat</th>
+                <th>Updatedby</th>
+                <th>Updatedat</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for term in terms %}
+            <tr>
+                <td><a href="{{ path('term_show', { 'id': term.id }) }}">{{ term.item }}</a></td>
+                <td>{{ term.createdBy }}</td>
+                <td>{% if term.createdAt %}{{ term.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ term.updatedBy }}</td>
+                <td>{% if term.updatedAt %}{{ term.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ term.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('term_show', { 'id': term.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('term_edit', { 'id': term.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('term_new') }}">Create a new term</a>
+        </li>
+    </ul>
+{% endblock %}

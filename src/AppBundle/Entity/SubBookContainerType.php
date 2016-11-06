@@ -52,4 +52,3 @@ class SubBookContainerType
         return $this->id;
     }
 }
-

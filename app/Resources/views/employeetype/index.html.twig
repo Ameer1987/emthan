@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employeetypes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for employeeType in employeeTypes %}
+            <tr>
+                <td><a href="{{ path('employeetype_show', { 'id': employeeType.id }) }}">{{ employeeType.item }}</a></td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('employeetype_show', { 'id': employeeType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('employeetype_edit', { 'id': employeeType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('employeetype_new') }}">Create a new employeeType</a>
+        </li>
+    </ul>
+{% endblock %}

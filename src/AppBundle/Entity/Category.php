@@ -197,4 +197,3 @@ class Category
         return $this->term;
     }
 }
-

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Years list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Createdat</th>
+                <th>Createdby</th>
+                <th>Updatedat</th>
+                <th>Updatedby</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for year in years %}
+            <tr>
+                <td><a href="{{ path('year_show', { 'id': year.id }) }}">{{ year.item }}</a></td>
+                <td>{% if year.createdAt %}{{ year.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ year.createdBy }}</td>
+                <td>{% if year.updatedAt %}{{ year.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ year.updatedBy }}</td>
+                <td>{{ year.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('year_show', { 'id': year.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('year_edit', { 'id': year.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('year_new') }}">Create a new year</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -66,4 +66,3 @@ class EmployeeType
         return $this->id;
     }
 }
-

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Covers list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Colors</th>
+                <th>Solofanmatly</th>
+                <th>Solofanlamea</th>
+                <th>Notes</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cover in covers %}
+            <tr>
+                <td><a href="{{ path('cover_show', { 'id': cover.id }) }}">{{ cover.colors }}</a></td>
+                <td>{% if cover.solofanMatly %}Yes{% else %}No{% endif %}</td>
+                <td>{% if cover.solofanLamea %}Yes{% else %}No{% endif %}</td>
+                <td>{{ cover.notes }}</td>
+                <td>{{ cover.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('cover_show', { 'id': cover.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('cover_edit', { 'id': cover.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('cover_new') }}">Create a new cover</a>
+        </li>
+    </ul>
+{% endblock %}

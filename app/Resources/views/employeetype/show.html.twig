@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Employeetype</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Item</th>
+                <td>{{ employeeType.item }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('employeetype_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('employeetype_edit', { 'id': employeeType.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

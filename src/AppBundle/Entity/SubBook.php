@@ -226,4 +226,3 @@ class SubBook
         return $this->subBookType;
     }
 }
-

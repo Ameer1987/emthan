@@ -31,6 +31,9 @@ framework:
     fragments:       ~
     http_method_override: true
     assets: ~
+#    translator: { fallbacks: ["%locale%"] }
+    translator: { fallbacks: [en] }
+
 
 # Twig Configuration
 twig:
@@ -75,3 +78,9 @@ assetic:
              cssrewrite: ~
 
 
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
