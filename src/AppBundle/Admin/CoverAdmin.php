@@ -1,38 +1,34 @@
 <?php
+namespace AppBundle\Admin;
 
-namespace AppBundle\Form;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
-
-class CoverType extends AbstractType
+class CoverAdmin extends AbstractAdmin
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder->add('colors')->add('solofanMatly')->add('solofanLamea')->add('notes')->add('responsibility')->add('book')        ;
-    }
     
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
+    
+    protected function configureFormFields(FormMapper $formMapper)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Cover'
-        ));
+        $formMapper
+                ->add('colors', 'text')
+                ->add('solofanMatly', 'checkbox')
+                ->add('solofanLamea', 'checkbox')
+                ->add('notes', 'textarea')
+                ->add('responsibility', 'text')
+                ->add('book', 'text');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        return 'appbundle_cover';
+        $datagridMapper->add('colors')->add('solofanMatly')->add('solofanLamea')->add('notes')->add('responsibility')->add('book')        ;
     }
 
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper->addIdentifier('colors')->addIdentifier('solofanMatly')->addIdentifier('solofanLamea')->addIdentifier('notes')->addIdentifier('responsibility')->addIdentifier('book')        ;
+    }
 
 }

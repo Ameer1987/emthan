@@ -57,7 +57,10 @@ class Book
      */
     private $subject;
 
-
+    public function __toString() {
+        return (string) $this->getItem();
+    }
+    
     /**
      * Set item
      *

@@ -19,8 +19,8 @@ class BookAdmin extends AbstractAdmin
                 ->add('price', 'text')
                 ->add('color', 'text')
                 ->add('pages', 'text')
-                ->add('sentToPrintDate')
-                ->add('finishPrintDate')
+                ->add('sentToPrintDate', 'datetime')
+                ->add('finishPrintDate', 'datetime')
                 ->add('bookType')
                 ->add('responsibility')
                 ->add('subject');

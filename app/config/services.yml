@@ -15,4 +15,22 @@ services:
         class: AppBundle\Admin\BookTypeAdmin
         arguments: [~, AppBundle\Entity\BookType, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: BookType }        
+            - { name: sonata.admin, manager_type: orm, label: BookType } 
+    
+    admin.brova:
+        class: AppBundle\Admin\BrovaAdmin
+        arguments: [~, AppBundle\Entity\Brova, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Brova } 
+    
+    admin.category:
+        class: AppBundle\Admin\CategoryAdmin
+        arguments: [~, AppBundle\Entity\Category, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Category} 
+            
+    admin.cover:
+        class: AppBundle\Admin\CoverAdmin
+        arguments: [~, AppBundle\Entity\Cover, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Cover } 
