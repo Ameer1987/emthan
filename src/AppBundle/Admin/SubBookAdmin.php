@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
 
-class SubBookType extends AbstractAdmin
+class SubBookAdmin extends AbstractAdmin
 {
     
     protected function configureFormFields(FormMapper $formMapper)
