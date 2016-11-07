@@ -34,3 +34,92 @@ services:
         arguments: [~, AppBundle\Entity\Cover, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Cover } 
+            
+            
+            
+    admin.employee:
+        class: AppBundle\Admin\EmployeeAdmin
+        arguments: [~, AppBundle\Entity\Employee, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Employee} 
+            
+    
+    admin.employee_type:
+        class: AppBundle\Admin\EmployeeTypeAdmin
+        arguments: [~, AppBundle\Entity\EmployeeType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: EmployeeType} 
+            
+    admin.level:
+        class: AppBundle\Admin\LevelAdmin
+        arguments: [~, AppBundle\Entity\Level, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Level} 
+            
+            
+    admin.sub_book:
+        class: AppBundle\Admin\SubBookAdmin
+        arguments: [~, AppBundle\Entity\SubBook, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: SubBook} 
+            
+    admin.sub_book_container_type:
+        class: AppBundle\Admin\SubBookContainerTypeAdmin
+        arguments: [~, AppBundle\Entity\SubBookContainerType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: SubBookContainerType} 
+            
+    
+    admin.sub_book_type:
+        class: AppBundle\Admin\SubBookTypeAdmin
+        arguments: [~, AppBundle\Entity\SubBookType, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: SubBookType} 
+            
+            
+            
+            
+            
+    admin.sub_level:
+        class: AppBundle\Admin\SubLevelAdmin
+        arguments: [~, AppBundle\Entity\SubLevel, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: SubLevel } 
+            
+            
+    admin.subject:
+        class: AppBundle\Admin\SubjectAdmin
+        arguments: [~, AppBundle\Entity\Subject, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Subject } 
+            
+    
+    admin.term:
+        class: AppBundle\Admin\TermAdmin
+        arguments: [~, AppBundle\Entity\Term, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Term } 
+            
+    
+    admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User } 
+            
+    
+    admin.user_group:
+        class: AppBundle\Admin\UserGroupAdmin
+        arguments: [~, AppBundle\Entity\UserGroup, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: UserGroup } 
+            
+    
+    admin.year:
+        class: AppBundle\Admin\YearAdmin
+        arguments: [~, AppBundle\Entity\Year, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Year } 
+            
+            
+            
