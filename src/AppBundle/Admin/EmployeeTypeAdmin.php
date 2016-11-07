@@ -1,38 +1,30 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Admin;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
 
-class EmployeeTypeType extends AbstractType
+class EmployeeTypeAdmin extends AbstractAdmin
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    
+    protected function configureFormFields(FormMapper $formMapper)
     {
-        $builder->add('item')->add('id')        ;
+        $formMapper
+                ->add('item', 'text');
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('item');
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper->addIdentifier('item');
     }
     
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\EmployeeType'
-        ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_employeetype';
-    }
-
 
 }
