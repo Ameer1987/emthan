@@ -1,38 +1,35 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Admin;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
 
-class YearType extends AbstractType
+class YearAdmin extends AbstractAdmin
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    
+    
+    protected function configureFormFields(FormMapper $formMapper)
     {
-        $builder->add('item')->add('createdAt')->add('createdBy')->add('updatedAt')->add('updatedBy')        ;
+        $formMapper
+                ->add('item', 'text')
+                ->add('createdBy', 'text')
+                ->add('createdAt', 'datetime')
+                ->add('updatedBy', 'text')
+                ->add('updatedAt', 'datetime')
+                ;
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')->add('updatedAt');
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper->addIdentifier('item')->addIdentifier('createdBy')->addIdentifier('createdAt')->addIdentifier('updatedBy')->addIdentifier('updatedAt');
     }
     
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Year'
-        ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_year';
-    }
-
-
 }

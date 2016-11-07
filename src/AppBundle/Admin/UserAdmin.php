@@ -1,38 +1,36 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Admin;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
 
-class UserType extends AbstractType
+class UserAdmin extends AbstractAdmin
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    
+    
+    protected function configureFormFields(FormMapper $formMapper)
     {
-        $builder->add('username')->add('password')        ;
+        $formMapper
+                ->add('username', 'text')
+                ->add('password', 'password')
+                ;
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('username')->add('password');
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper->addIdentifier('username')->addIdentifier('password');
     }
     
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\User'
-        ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_user';
-    }
-
+    
+    
+    
 
 }

@@ -1,38 +1,37 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Admin;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
 
-class SubjectType extends AbstractType
+class SubjectAdmin extends AbstractAdmin
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+    
+    
+    protected function configureFormFields(FormMapper $formMapper)
     {
-        $builder->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')->add('updatedAt')->add('subLevel')        ;
+        $formMapper
+                ->add('item', 'text')
+                ->add('createdBy', 'text')
+                ->add('createdAt', 'datetime')
+                ->add('updatedBy', 'text')
+                ->add('updatedAt', 'datetime')
+                ->add('subLevel', 'text')
+                ;
+    }
+
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')->add('updatedAt')->add('subLevel')        ;
+    }
+
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper->addIdentifier('item')->addIdentifier('createdBy')->addIdentifier('createdAt')->addIdentifier('updatedBy')->addIdentifier('updatedAt')->addIdentifier('subLevel')        ;
     }
     
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\Subject'
-        ));
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
-    {
-        return 'appbundle_subject';
-    }
-
-
+    
 }

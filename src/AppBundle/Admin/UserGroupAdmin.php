@@ -1,38 +1,27 @@
 <?php
 
-namespace AppBundle\Form;
+namespace AppBundle\Admin;
 
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Sonata\AdminBundle\Admin\AbstractAdmin;
+use Sonata\AdminBundle\Datagrid\ListMapper;
+use Sonata\AdminBundle\Datagrid\DatagridMapper;
+use Sonata\AdminBundle\Form\FormMapper;
 
-class UserGroupType extends AbstractType
+class UserGroupAdmin extends AbstractAdmin
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function buildForm(FormBuilderInterface $builder, array $options)
+   protected function configureFormFields(FormMapper $formMapper)
     {
-        $builder->add('item')        ;
-    }
-    
-    /**
-     * {@inheritdoc}
-     */
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\UserGroup'
-        ));
+        $formMapper->add('item', 'text');
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getBlockPrefix()
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        return 'appbundle_usergroup';
+        $datagridMapper->add('item');
     }
 
+    protected function configureListFields(ListMapper $listMapper)
+    {
+        $listMapper->addIdentifier('item');
+    }
 
 }
