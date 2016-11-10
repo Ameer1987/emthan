@@ -22,13 +22,15 @@ class YearAdmin extends AbstractAdmin
                 ->add('updatedBy', 'entity', array(
                     'class' => 'AppBundle\Entity\User',
                 ))
-                ->add('updatedAt', 'datetime')
+                ->add('updatedAt', 'sonata_type_date_picker')
                 ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')->add('updatedAt');
+        $datagridMapper->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')
+                ->add('updatedAt', 'doctrine_orm_datetime', array('field_type'=>'sonata_type_datetime_picker',))
+                ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
