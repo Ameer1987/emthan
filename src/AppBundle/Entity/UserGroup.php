@@ -17,6 +17,9 @@ class UserGroup
      */
     private $id;
 
+    public function __toString() {
+        return (string) $this->getItem();
+    }
 
     /**
      * Set item

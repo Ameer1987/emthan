@@ -47,7 +47,10 @@ class SubBook
      */
     private $subBookType;
 
-
+    public function __toString() {
+        return (string) $this->getItem();
+    }
+    
     /**
      * Set item
      *

@@ -22,7 +22,10 @@ class SubBookType
      */
     private $subBookContainerType;
 
-
+    public function __toString() {
+        return (string) $this->getItem();
+    }
+    
     /**
      * Set item
      *

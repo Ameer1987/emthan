@@ -22,7 +22,11 @@ class User
      */
     private $id;
 
-
+    public function __toString() {
+        return (string) $this->getUsername();
+    }
+    
+    
     /**
      * Set username
      *

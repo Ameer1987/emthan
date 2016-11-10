@@ -42,7 +42,11 @@ class Cover
      */
     private $book;
 
-
+    
+    public function __toString() {
+        return (string) $this->getItem();
+    }
+    
     /**
      * Set colors
      *

@@ -21,7 +21,10 @@ class Employee
      * @var integer
      */
     private $id;
-
+    
+    public function __toString() {
+        return (string) $this->getName();
+    }
 
     /**
      * Set name

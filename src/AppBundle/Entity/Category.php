@@ -42,7 +42,11 @@ class Category
      */
     private $term;
 
-
+    
+    public function __toString() {
+        return (string) $this->getItem();
+    }
+    
     /**
      * Set item
      *

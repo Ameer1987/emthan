@@ -42,7 +42,10 @@ class Subject
      */
     private $subLevel;
 
-
+    public function __toString() {
+        return (string) $this->getItem();
+    }
+    
     /**
      * Set item
      *

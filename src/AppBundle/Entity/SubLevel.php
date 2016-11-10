@@ -41,7 +41,11 @@ class SubLevel
      * @var \AppBundle\Entity\Level
      */
     private $level;
-
+    
+    
+    public function __toString() {
+        return (string) $this->getItem();
+    }
 
     /**
      * Set item
