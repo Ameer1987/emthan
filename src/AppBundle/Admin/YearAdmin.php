@@ -15,9 +15,13 @@ class YearAdmin extends AbstractAdmin
     {
         $formMapper
                 ->add('item', 'text')
-                ->add('createdBy', 'text')
+                ->add('createdBy', 'entity', array(
+                    'class' => 'AppBundle\Entity\User',
+                ))
                 ->add('createdAt', 'datetime')
-                ->add('updatedBy', 'text')
+                ->add('updatedBy', 'entity', array(
+                    'class' => 'AppBundle\Entity\User',
+                ))
                 ->add('updatedAt', 'datetime')
                 ;
     }
