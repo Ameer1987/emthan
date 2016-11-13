@@ -200,4 +200,50 @@ class Year
     {
         return $this->item;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $terms;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->terms = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add term
+     *
+     * @param \AppBundle\Entity\Term $term
+     *
+     * @return Year
+     */
+    public function addTerm(\AppBundle\Entity\Term $term)
+    {
+        $this->terms[] = $term;
+
+        return $this;
+    }
+
+    /**
+     * Remove term
+     *
+     * @param \AppBundle\Entity\Term $term
+     */
+    public function removeTerm(\AppBundle\Entity\Term $term)
+    {
+        $this->terms->removeElement($term);
+    }
+
+    /**
+     * Get terms
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTerms()
+    {
+        return $this->terms;
+    }
 }
