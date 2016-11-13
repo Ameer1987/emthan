@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="tree">
+    <div class="tree" style="display: none;">
         <ul>
             <li>
                 <a href="#">
@@ -9,7 +9,7 @@
                 </a>
                 <ul>
                     {% for term in year.terms %}
-                        <li class="term">
+                        <li>
                             <a href="#">{{ term }}</a>
                             <ul>
                                 {% for category in term.categories %}
@@ -19,6 +19,20 @@
                                             {% for level in category.levels %}
                                                 <li>
                                                     <a href="#">{{ level }}</a>
+                                                    <ul>
+                                                        {% for subLevel in level.subLevels %}
+                                                            <li>
+                                                                <a href="#">{{ subLevel }}</a>
+                                                                <ul>
+                                                                    {% for subject in subLevel.subjects %}
+                                                                        <li>
+                                                                            <a href="#">{{ subject }}</a>
+                                                                        </li>
+                                                                    {% endfor %}
+                                                                </ul>
+                                                            </li>
+                                                        {% endfor %}
+                                                    </ul>
                                                 </li>
                                             {% endfor %}
                                         </ul>
