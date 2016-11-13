@@ -8,11 +8,6 @@ namespace AppBundle\Entity;
 class Year
 {
     /**
-     * @var integer
-     */
-    private $item;
-
-    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -42,30 +37,6 @@ class Year
         return (string) $this->getItem();
     }
     
-    /**
-     * Set item
-     *
-     * @param integer $item
-     *
-     * @return Year
-     */
-    public function setItem($item)
-    {
-        $this->item = $item;
-
-        return $this;
-    }
-
-    /**
-     * Get item
-     *
-     * @return integer
-     */
-    public function getItem()
-    {
-        return $this->item;
-    }
-
     /**
      * Set createdAt
      *
@@ -170,5 +141,63 @@ class Year
     public function getId()
     {
         return $this->id;
+    }
+    /**
+     * @var boolean
+     */
+    private $isDefault;
+
+
+    /**
+     * Set isDefault
+     *
+     * @param boolean $isDefault
+     *
+     * @return Year
+     */
+    public function setIsDefault($isDefault)
+    {
+        $this->isDefault = $isDefault;
+
+        return $this;
+    }
+
+    /**
+     * Get isDefault
+     *
+     * @return boolean
+     */
+    public function getIsDefault()
+    {
+        return $this->isDefault;
+    }
+    /**
+     * @var string
+     */
+    private $item;
+
+
+    /**
+     * Set item
+     *
+     * @param string $item
+     *
+     * @return Year
+     */
+    public function setItem($item)
+    {
+        $this->item = $item;
+
+        return $this;
+    }
+
+    /**
+     * Get item
+     *
+     * @return string
+     */
+    public function getItem()
+    {
+        return $this->item;
     }
 }
