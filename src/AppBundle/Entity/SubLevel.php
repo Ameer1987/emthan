@@ -200,4 +200,50 @@ class SubLevel
     {
         return $this->level;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $subjects;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->subjects = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add subject
+     *
+     * @param \AppBundle\Entity\Subject $subject
+     *
+     * @return SubLevel
+     */
+    public function addSubject(\AppBundle\Entity\Subject $subject)
+    {
+        $this->subjects[] = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Remove subject
+     *
+     * @param \AppBundle\Entity\Subject $subject
+     */
+    public function removeSubject(\AppBundle\Entity\Subject $subject)
+    {
+        $this->subjects->removeElement($subject);
+    }
+
+    /**
+     * Get subjects
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubjects()
+    {
+        return $this->subjects;
+    }
 }
