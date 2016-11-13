@@ -7,11 +7,12 @@
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
     </id>
-    <field name="item" type="integer" column="item" nullable="false">
+    <field name="item" type="string" column="item" length="15" nullable="false">
       <options>
-        <option name="unsigned"/>
+        <option name="fixed"/>
       </options>
     </field>
+    <field name="isDefault" type="boolean" column="is_default" nullable="false"/>
     <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
     <field name="createdBy" type="integer" column="created_by" nullable="false">
       <options>
