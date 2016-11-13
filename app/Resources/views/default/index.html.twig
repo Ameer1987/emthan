@@ -1,9 +1,35 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ year }}
-    {% for term in year.terms %}
-        {{ term }}
-    {% endfor %}
+    <div class="tree">
+        <ul>
+            <li>
+                <a href="#">
+                    {{ year }}
+                </a>
+                <ul>
+                    {% for term in year.terms %}
+                        <li class="term">
+                            <a href="#">{{ term }}</a>
+                            <ul>
+                                {% for category in term.categories %}
+                                    <li>
+                                        <a href="#">{{ category }}</a>
+                                        <ul>
+                                            {% for level in category.levels %}
+                                                <li>
+                                                    <a href="#">{{ level }}</a>
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </div>
 {% endblock %}
 
