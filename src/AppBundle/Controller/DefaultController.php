@@ -33,4 +33,18 @@ class DefaultController extends Controller {
         ]);
     }
 
+    /**
+     * @Route("/subjects/{subject_id}", name="subjects")
+     */
+    public function subjectsAction($subject_id, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+
+        $subject = $em->getRepository('AppBundle:Subject')->findOneById($subject_id);
+
+        // replace this example code with whatever you need
+        return $this->render('default/subjects.html.twig', [
+                    'subject' => $subject,
+        ]);
+    }
+
 }
