@@ -18,7 +18,9 @@ class SubLevelAdmin extends AbstractAdmin
                 ->add('createdAt', 'datetime')
                 ->add('updatedBy', 'text')
                 ->add('updatedAt', 'datetime')
-                ->add('level', 'text')
+                ->add('level', 'entity', array(
+                    'class' => 'AppBundle\Entity\Level'
+                ))
                 ;
     }
 

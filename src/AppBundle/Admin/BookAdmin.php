@@ -21,9 +21,15 @@ class BookAdmin extends AbstractAdmin
                 ->add('pages', 'text')
                 ->add('sentToPrintDate', 'datetime')
                 ->add('finishPrintDate', 'datetime')
-                ->add('bookType')
-                ->add('responsibility')
-                ->add('subject');
+                ->add('bookType', 'entity', array(
+                    'class' => 'AppBundle\Entity\BookType'
+                ))
+                ->add('responsibility', 'entity', array(
+                    'class' => 'AppBundle\Entity\Employee'
+                ))
+                ->add('subject', 'entity', array(
+                    'class' => 'AppBundle\Entity\Subject'
+                ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

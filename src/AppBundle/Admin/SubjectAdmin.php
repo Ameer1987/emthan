@@ -19,7 +19,9 @@ class SubjectAdmin extends AbstractAdmin
                 ->add('createdAt', 'datetime')
                 ->add('updatedBy', 'text')
                 ->add('updatedAt', 'datetime')
-                ->add('subLevel', 'text')
+                ->add('subLevel', 'entity' , array(
+                    'class' => 'AppBundle\Entity\SubLevel'
+                ))
                 ;
     }
 

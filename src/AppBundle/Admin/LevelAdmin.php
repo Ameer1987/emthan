@@ -19,7 +19,9 @@ class LevelAdmin extends AbstractAdmin
                 ->add('createdBy', 'text')
                 ->add('updatedAt', 'datetime')
                 ->add('updatedBy', 'text')
-                ->add('category', 'text')
+                ->add('category', 'entity', array(
+                    'class' => 'AppBundle\Entity\Category'
+                ))
                 ;
     }
 

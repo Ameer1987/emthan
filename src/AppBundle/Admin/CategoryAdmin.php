@@ -16,7 +16,9 @@ class CategoryAdmin extends AbstractAdmin {
                 ->add('createdAt', 'datetime')
                 ->add('updatedBy', 'text')
                 ->add('updatedAt', 'datetime')
-                ->add('term', 'text');
+                ->add('term', 'entity' , array(
+                    'class' => 'AppBundle\Entity\Term'
+                ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper) {
