@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="tree" style="display: none;">
+        <ul>
+            <li>
+                <a href="#">
+                    {{ subject }}
+                </a>
+                <ul>
+                    {% for book in subject.books %}
+                        <li>
+                            <a href="#">{{ book }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+

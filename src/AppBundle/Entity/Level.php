@@ -198,4 +198,50 @@ class Level
     {
         return $this->category;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $subLevels;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->subLevels = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add subLevel
+     *
+     * @param \AppBundle\Entity\subLevel $subLevel
+     *
+     * @return Level
+     */
+    public function addSubLevel(\AppBundle\Entity\subLevel $subLevel)
+    {
+        $this->subLevels[] = $subLevel;
+
+        return $this;
+    }
+
+    /**
+     * Remove subLevel
+     *
+     * @param \AppBundle\Entity\subLevel $subLevel
+     */
+    public function removeSubLevel(\AppBundle\Entity\subLevel $subLevel)
+    {
+        $this->subLevels->removeElement($subLevel);
+    }
+
+    /**
+     * Get subLevels
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubLevels()
+    {
+        return $this->subLevels;
+    }
 }

@@ -200,4 +200,50 @@ class Category
     {
         return $this->term;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $levels;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->levels = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add level
+     *
+     * @param \AppBundle\Entity\Level $level
+     *
+     * @return Category
+     */
+    public function addLevel(\AppBundle\Entity\Level $level)
+    {
+        $this->levels[] = $level;
+
+        return $this;
+    }
+
+    /**
+     * Remove level
+     *
+     * @param \AppBundle\Entity\Level $level
+     */
+    public function removeLevel(\AppBundle\Entity\Level $level)
+    {
+        $this->levels->removeElement($level);
+    }
+
+    /**
+     * Get levels
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getLevels()
+    {
+        return $this->levels;
+    }
 }
