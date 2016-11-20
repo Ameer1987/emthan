@@ -23,8 +23,10 @@ class DefaultController extends Controller {
                             ->setMaxResults(1)
                             ->getQuery()->getOneOrNullResult();
 
-            $year_id = $year->getId();
-            $request->getSession()->set('year_id', $year_id);
+            if ($year !== null) {
+                $year_id = $year->getId();
+                $request->getSession()->set('year_id', $year_id);
+            }
         }
 
         // replace this example code with whatever you need
