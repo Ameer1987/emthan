@@ -13,7 +13,7 @@ class YearType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('item')->add('createdAt')->add('createdBy')->add('updatedAt')->add('updatedBy')        ;
+        $builder->add('item')->add('createdAt')->add('createdBy')->add('updatedAt')->add('updatedBy')->add('isDefault');
     }
     
     /**
