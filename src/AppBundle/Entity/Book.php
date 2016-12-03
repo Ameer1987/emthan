@@ -286,4 +286,50 @@ class Book
     {
         return $this->subject;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $subBooks;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->subBooks = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add subBook
+     *
+     * @param \AppBundle\Entity\SubBook $subBook
+     *
+     * @return Book
+     */
+    public function addSubBook(\AppBundle\Entity\SubBook $subBook)
+    {
+        $this->subBooks[] = $subBook;
+
+        return $this;
+    }
+
+    /**
+     * Remove subBook
+     *
+     * @param \AppBundle\Entity\SubBook $subBook
+     */
+    public function removeSubBook(\AppBundle\Entity\SubBook $subBook)
+    {
+        $this->subBooks->removeElement($subBook);
+    }
+
+    /**
+     * Get subBooks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSubBooks()
+    {
+        return $this->subBooks;
+    }
 }
