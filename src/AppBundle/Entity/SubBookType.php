@@ -17,15 +17,7 @@ class SubBookType
      */
     private $id;
 
-    /**
-     * @var \AppBundle\Entity\SubBookContainerType
-     */
-    private $subBookContainerType;
 
-    public function __toString() {
-        return (string) $this->getItem();
-    }
-    
     /**
      * Set item
      *
@@ -59,28 +51,5 @@ class SubBookType
     {
         return $this->id;
     }
-
-    /**
-     * Set subBookContainerType
-     *
-     * @param \AppBundle\Entity\SubBookContainerType $subBookContainerType
-     *
-     * @return SubBookType
-     */
-    public function setSubBookContainerType(\AppBundle\Entity\SubBookContainerType $subBookContainerType = null)
-    {
-        $this->subBookContainerType = $subBookContainerType;
-
-        return $this;
-    }
-
-    /**
-     * Get subBookContainerType
-     *
-     * @return \AppBundle\Entity\SubBookContainerType
-     */
-    public function getSubBookContainerType()
-    {
-        return $this->subBookContainerType;
-    }
 }
+
