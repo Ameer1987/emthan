@@ -5,8 +5,8 @@ namespace AppBundle\Entity;
 /**
  * SubBookType
  */
-class SubBookType
-{
+class SubBookType {
+
     /**
      * @var string
      */
@@ -17,6 +17,9 @@ class SubBookType
      */
     private $id;
 
+    public function __toString() {
+        return (string) $this->getItem();
+    }
 
     /**
      * Set item
@@ -25,8 +28,7 @@ class SubBookType
      *
      * @return SubBookType
      */
-    public function setItem($item)
-    {
+    public function setItem($item) {
         $this->item = $item;
 
         return $this;
@@ -37,8 +39,7 @@ class SubBookType
      *
      * @return string
      */
-    public function getItem()
-    {
+    public function getItem() {
         return $this->item;
     }
 
@@ -47,9 +48,8 @@ class SubBookType
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
-}
 
+}
