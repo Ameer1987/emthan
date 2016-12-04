@@ -5,8 +5,8 @@ namespace AppBundle\Entity;
 /**
  * SubBook
  */
-class SubBook
-{
+class SubBook {
+
     /**
      * @var string
      */
@@ -50,7 +50,7 @@ class SubBook
     public function __toString() {
         return (string) $this->getItem();
     }
-    
+
     /**
      * Set item
      *
@@ -58,8 +58,7 @@ class SubBook
      *
      * @return SubBook
      */
-    public function setItem($item)
-    {
+    public function setItem($item) {
         $this->item = $item;
 
         return $this;
@@ -70,8 +69,7 @@ class SubBook
      *
      * @return string
      */
-    public function getItem()
-    {
+    public function getItem() {
         return $this->item;
     }
 
@@ -82,8 +80,7 @@ class SubBook
      *
      * @return SubBook
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -94,8 +91,7 @@ class SubBook
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -106,8 +102,7 @@ class SubBook
      *
      * @return SubBook
      */
-    public function setUpdatedBy($updatedBy)
-    {
+    public function setUpdatedBy($updatedBy) {
         $this->updatedBy = $updatedBy;
 
         return $this;
@@ -118,8 +113,7 @@ class SubBook
      *
      * @return integer
      */
-    public function getUpdatedBy()
-    {
+    public function getUpdatedBy() {
         return $this->updatedBy;
     }
 
@@ -130,8 +124,7 @@ class SubBook
      *
      * @return SubBook
      */
-    public function setCreatedBy($createdBy)
-    {
+    public function setCreatedBy($createdBy) {
         $this->createdBy = $createdBy;
 
         return $this;
@@ -142,8 +135,7 @@ class SubBook
      *
      * @return integer
      */
-    public function getCreatedBy()
-    {
+    public function getCreatedBy() {
         return $this->createdBy;
     }
 
@@ -154,8 +146,7 @@ class SubBook
      *
      * @return SubBook
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -166,8 +157,7 @@ class SubBook
      *
      * @return \DateTime
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
 
@@ -176,8 +166,7 @@ class SubBook
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -188,8 +177,7 @@ class SubBook
      *
      * @return SubBook
      */
-    public function setBook(\AppBundle\Entity\Book $book = null)
-    {
+    public function setBook(\AppBundle\Entity\Book $book = null) {
         $this->book = $book;
 
         return $this;
@@ -200,8 +188,7 @@ class SubBook
      *
      * @return \AppBundle\Entity\Book
      */
-    public function getBook()
-    {
+    public function getBook() {
         return $this->book;
     }
 
@@ -212,8 +199,7 @@ class SubBook
      *
      * @return SubBook
      */
-    public function setSubBookType(\AppBundle\Entity\SubBookType $subBookType = null)
-    {
+    public function setSubBookType(\AppBundle\Entity\SubBookType $subBookType = null) {
         $this->subBookType = $subBookType;
 
         return $this;
@@ -224,8 +210,51 @@ class SubBook
      *
      * @return \AppBundle\Entity\SubBookType
      */
-    public function getSubBookType()
-    {
+    public function getSubBookType() {
         return $this->subBookType;
     }
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $brovas;
+
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        $this->brovas = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add brova
+     *
+     * @param \AppBundle\Entity\Brova $brova
+     *
+     * @return SubBook
+     */
+    public function addBrova(\AppBundle\Entity\Brova $brova) {
+        $this->brovas[] = $brova;
+
+        return $this;
+    }
+
+    /**
+     * Remove brova
+     *
+     * @param \AppBundle\Entity\Brova $brova
+     */
+    public function removeBrova(\AppBundle\Entity\Brova $brova) {
+        $this->brovas->removeElement($brova);
+    }
+
+    /**
+     * Get brovas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBrovas() {
+        return $this->brovas;
+    }
+
 }

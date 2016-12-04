@@ -49,4 +49,18 @@ class DefaultController extends Controller {
         ]);
     }
 
+    /**
+     * @Route("/sub_books/{sub_book_id}", name="sub_books")
+     */
+    public function subBooksAction($sub_book_id, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+
+        $sub_book = $em->getRepository('AppBundle:SubBook')->findOneById($sub_book_id);
+
+        // replace this example code with whatever you need
+        return $this->render('default/sub_books.html.twig', [
+                    'sub_book' => $sub_book,
+        ]);
+    }
+
 }

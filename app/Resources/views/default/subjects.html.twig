@@ -10,7 +10,14 @@
                 <ul>
                     {% for book in subject.books %}
                         <li>
-                            <a href="#">{{ book }}</a>
+                            <a href="#">{{ book }}({{ book.BookType }})</a>
+                            <ul>
+                                {% for subBook in book.subBooks %}
+                                    <li>
+                                        <a href="{{ path('sub_books', { 'sub_book_id': subBook.id }) }}">{{ subBook }}({{ subBook.subBookType }})</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
                         </li>
                     {% endfor %}
                 </ul>
