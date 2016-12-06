@@ -15,12 +15,12 @@ class BookAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-                ->add('item', 'text')
-                ->add('price', 'text')
-                ->add('color', 'text')
-                ->add('pages', 'text')
-                ->add('sentToPrintDate', 'datetime')
-                ->add('finishPrintDate', 'datetime')
+                ->add('item', 'text', array('label' => 'book'))
+                ->add('price', 'text', array('label' => 'price'))
+                ->add('color', 'text', array('label' => 'color'))
+                ->add('pages', 'text', array('label' => 'pages'))
+                ->add('sentToPrintDate', 'datetime', array('label' => 'sentToPrintDate'))
+                ->add('finishPrintDate', 'datetime', array('label' => 'finishPrintDate'))
                 ->add('bookType', 'entity', array(
                     'class' => 'AppBundle\Entity\BookType'
                 ))
