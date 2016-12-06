@@ -20,14 +20,14 @@
         <option name="fixed"/>
       </options>
     </field>
-    <many-to-one field="responsibility" target-entity="Employee" fetch="LAZY">
-      <join-columns>
-        <join-column name="responsibility_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
     <many-to-one field="book" target-entity="Book" fetch="LAZY">
       <join-columns>
         <join-column name="book_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="responsibility" target-entity="Employee" fetch="LAZY">
+      <join-columns>
+        <join-column name="responsibility_id" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>
