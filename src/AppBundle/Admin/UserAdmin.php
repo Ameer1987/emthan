@@ -14,7 +14,7 @@ class UserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-                ->add('username')->add('usernameCanonical')->add('email')->add('emailCanonical')->add('enabled')->add('salt')->add('password')->add('lastLogin')->add('confirmationToken')->add('passwordRequestedAt')->add('roles')        ;
+                ->add('username')->add('usernameCanonical')->add('email')->add('emailCanonical')->add('enabled')->add('password', 'password')->add('roles')        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -24,7 +24,7 @@ class UserAdmin extends AbstractAdmin
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('username')->addIdentifier('usernameCanonical')->addIdentifier('email')->addIdentifier('emailCanonical')->addIdentifier('enabled')->addIdentifier('salt')->addIdentifier('password')->addIdentifier('lastLogin')->addIdentifier('confirmationToken')->addIdentifier('passwordRequestedAt')->addIdentifier('roles')        ;
+        $listMapper->addIdentifier('username')->addIdentifier('usernameCanonical')->addIdentifier('email')->addIdentifier('emailCanonical')->addIdentifier('enabled')->addIdentifier('salt')->addIdentifier('password', 'password')->addIdentifier('lastLogin')->addIdentifier('confirmationToken')->addIdentifier('passwordRequestedAt')->addIdentifier('roles')        ;
     }
     
     
