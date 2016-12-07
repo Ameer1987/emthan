@@ -13,11 +13,11 @@ class TermAdmin extends AbstractAdmin {
         $formMapper
                 ->add('item', 'text')
                 ->add('createdBy', 'entity', array(
-                    'class' => 'AppBundle\Entity\User',
+                    'class' => 'AppBundle\Entity\FosUser',
                 ))
                 ->add('createdAt', 'datetime')
                 ->add('updatedBy', 'entity', array(
-                    'class' => 'AppBundle\Entity\User',
+                    'class' => 'AppBundle\Entity\FosUser',
                 ))
                 ->add('updatedAt', 'datetime')
                 ->add('year', 'entity', array(
