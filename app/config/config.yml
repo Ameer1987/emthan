@@ -74,7 +74,7 @@ swiftmailer:
 assetic:
          debug:          "%kernel.debug%"
          use_controller: false
-         bundles:        [ ]
+         bundles:        [ FOSUserBundle ]
          filters:
              cssrewrite: ~
 
