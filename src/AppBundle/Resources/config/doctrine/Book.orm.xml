@@ -5,6 +5,8 @@
       <index name="subject_id" columns="subject_id"/>
       <index name="responsibility_id" columns="responsibility_id"/>
       <index name="book_type_id" columns="book_type_id"/>
+      <index name="created_by" columns="created_by"/>
+      <index name="updated_by" columns="updated_by"/>
     </indexes>
     <id name="id" type="integer" column="id">
       <generator strategy="IDENTITY"/>
@@ -31,6 +33,8 @@
     </field>
     <field name="sentToPrintDate" type="datetime" column="sent_to_print_date" nullable="false"/>
     <field name="finishPrintDate" type="datetime" column="finish_print_date" nullable="false"/>
+    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+    <field name="updatedAt" type="datetime" column="updated_at" nullable="false"/>
     <many-to-one field="subject" target-entity="Subject" fetch="LAZY">
       <join-columns>
         <join-column name="subject_id" referenced-column-name="id"/>
@@ -44,6 +48,16 @@
     <many-to-one field="bookType" target-entity="BookType" fetch="LAZY">
       <join-columns>
         <join-column name="book_type_id" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="createdBy" target-entity="FosUser" fetch="LAZY">
+      <join-columns>
+        <join-column name="created_by" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="updatedBy" target-entity="FosUser" fetch="LAZY">
+      <join-columns>
+        <join-column name="updated_by" referenced-column-name="id"/>
       </join-columns>
     </many-to-one>
   </entity>
