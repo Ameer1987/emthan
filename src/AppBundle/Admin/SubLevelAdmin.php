@@ -14,10 +14,6 @@ class SubLevelAdmin extends AbstractAdmin
     {
         $formMapper
                 ->add('item', 'text')
-                ->add('createdBy', 'text')
-                ->add('createdAt', 'datetime')
-                ->add('updatedBy', 'text')
-                ->add('updatedAt', 'datetime')
                 ->add('level', 'entity', array(
                     'class' => 'AppBundle\Entity\Level'
                 ))
@@ -26,12 +22,12 @@ class SubLevelAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')->add('updatedAt')->add('level');
+        $datagridMapper->add('item')->add('level');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('item')->addIdentifier('createdBy')->addIdentifier('createdAt')->addIdentifier('updatedBy')->addIdentifier('updatedAt')->addIdentifier('level');
+        $listMapper->addIdentifier('item')->addIdentifier('level');
     }
     
   
