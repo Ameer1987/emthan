@@ -15,22 +15,18 @@ class SubBookAdmin extends AbstractAdmin
     {
         $formMapper
                 ->add('item', 'text')
-                ->add('createdAt', 'datetime')
-                ->add('updatedBy', 'text')
-                ->add('createdBy', 'text')
-                ->add('updatedAt', 'datetime')
                 ->add('book'. 'text')
                 ->add('subBookType', 'text')        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('item')->add('createdAt')->add('updatedBy')->add('createdBy')->add('updatedAt')->add('book')->add('subBookType')        ;
+        $datagridMapper->add('item')->add('book')->add('subBookType')        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('item')->addIdentifier('createdAt')->addIdentifier('updatedBy')->addIdentifier('createdBy')->addIdentifier('updatedAt')->addIdentifier('book')->addIdentifier('subBookType')        ;
+        $listMapper->addIdentifier('item')->addIdentifier('book')->addIdentifier('subBookType')        ;
     }
     
 
