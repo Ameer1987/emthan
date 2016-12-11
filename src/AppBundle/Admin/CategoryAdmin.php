@@ -12,21 +12,17 @@ class CategoryAdmin extends AbstractAdmin {
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
                 ->add('item', 'text')
-                ->add('createdBy', 'text')
-                ->add('createdAt', 'datetime')
-                ->add('updatedBy', 'text')
-                ->add('updatedAt', 'datetime')
                 ->add('term', 'entity' , array(
                     'class' => 'AppBundle\Entity\Term'
                 ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper) {
-        $datagridMapper->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')->add('updatedAt')->add('term');
+        $datagridMapper->add('item')->add('term');
     }
 
     protected function configureListFields(ListMapper $listMapper) {
-        $listMapper->addIdentifier('item')->addIdentifier('createdBy')->addIdentifier('createdAt')->addIdentifier('updatedBy')->addIdentifier('updatedAt')->addIdentifier('term');
+        $listMapper->addIdentifier('item')->addIdentifier('term');
     }
 
 }
