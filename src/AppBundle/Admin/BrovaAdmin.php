@@ -17,10 +17,6 @@ class BrovaAdmin extends AbstractAdmin
                 ->add('receivedDate', 'datetime')
                 ->add('sentDate', 'datetime')
                 ->add('expectedDate', 'datetime')
-                ->add('createdAt', 'datetime')
-                ->add('updatedAt', 'datetime')
-                ->add('updatedBy', 'text')
-                ->add('createdBy', 'text')
                 ->add('subBook')
                 ->add('responsibility');
     }
