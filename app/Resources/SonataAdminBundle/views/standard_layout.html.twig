@@ -148,11 +148,11 @@ file that was distributed with this source code.
                 {% endblock %}
                 {% block sonata_nav %}
                     <nav class="navbar navbar-static-top" role="navigation">
-                        <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        {#<a href="#" class="sidebar-toggle hidden" data-toggle="offcanvas" role="button">
                             <span class="sr-only">Toggle navigation</span>
-                        </a>
+                        </a>#}
 
-                        <div class="navbar-left">
+                        {#<div class="navbar-left">
                             {% block sonata_breadcrumb %}
                                 <div class="hidden-xs">
                                     {% if _breadcrumb is not empty or action is defined %}
@@ -192,7 +192,7 @@ file that was distributed with this source code.
                                     {% endif %}
                                 </div>
                             {% endblock sonata_breadcrumb %}
-                        </div>
+                        </div>#}
 
                         {% block sonata_top_nav_menu %}
                             {% if app.user and is_granted('ROLE_SONATA_ADMIN') %}
@@ -220,6 +220,36 @@ file that was distributed with this source code.
                                 </div>
                             {% endif %}
                         {% endblock %}
+
+                        <div class="navbar-right" style="margin-right: 30px;" dir="rtl">
+                            <ol class="navbar-top-links breadcrumb">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        الرئيسية
+                                    </a>
+                                </li>
+                                <li class="dropdown user-menu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        السنة
+                                    </a>
+                                </li>
+                                <li class="dropdown user-menu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        التقارير
+                                    </a>
+                                </li>
+                                <li class="dropdown user-menu">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        المسئولين
+                                    </a>
+                                </li>
+                                <li class="dropdown user-menu">
+                                    <a class="dropdown-toggle settings-toggle" data-toggle="dropdown" href="#">
+                                        الاعدادات
+                                    </a>
+                                </li>
+                            </ol>
+                        </div>
                     </nav>
                 {% endblock sonata_nav %}
             </header>
