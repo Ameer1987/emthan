@@ -5,8 +5,8 @@ namespace AppBundle\Entity;
 /**
  * Book
  */
-class Book
-{
+class Book {
+
     /**
      * @var string
      */
@@ -60,7 +60,7 @@ class Book
     public function __toString() {
         return (string) $this->getItem();
     }
-    
+
     /**
      * Set item
      *
@@ -68,8 +68,7 @@ class Book
      *
      * @return Book
      */
-    public function setItem($item)
-    {
+    public function setItem($item) {
         $this->item = $item;
 
         return $this;
@@ -80,8 +79,7 @@ class Book
      *
      * @return string
      */
-    public function getItem()
-    {
+    public function getItem() {
         return $this->item;
     }
 
@@ -92,8 +90,7 @@ class Book
      *
      * @return Book
      */
-    public function setPrice($price)
-    {
+    public function setPrice($price) {
         $this->price = $price;
 
         return $this;
@@ -104,8 +101,7 @@ class Book
      *
      * @return string
      */
-    public function getPrice()
-    {
+    public function getPrice() {
         return $this->price;
     }
 
@@ -116,8 +112,7 @@ class Book
      *
      * @return Book
      */
-    public function setColor($color)
-    {
+    public function setColor($color) {
         $this->color = $color;
 
         return $this;
@@ -128,8 +123,7 @@ class Book
      *
      * @return string
      */
-    public function getColor()
-    {
+    public function getColor() {
         return $this->color;
     }
 
@@ -140,8 +134,7 @@ class Book
      *
      * @return Book
      */
-    public function setPages($pages)
-    {
+    public function setPages($pages) {
         $this->pages = $pages;
 
         return $this;
@@ -152,8 +145,7 @@ class Book
      *
      * @return integer
      */
-    public function getPages()
-    {
+    public function getPages() {
         return $this->pages;
     }
 
@@ -164,8 +156,7 @@ class Book
      *
      * @return Book
      */
-    public function setSentToPrintDate($sentToPrintDate)
-    {
+    public function setSentToPrintDate($sentToPrintDate) {
         $this->sentToPrintDate = $sentToPrintDate;
 
         return $this;
@@ -176,8 +167,7 @@ class Book
      *
      * @return \DateTime
      */
-    public function getSentToPrintDate()
-    {
+    public function getSentToPrintDate() {
         return $this->sentToPrintDate;
     }
 
@@ -188,8 +178,7 @@ class Book
      *
      * @return Book
      */
-    public function setFinishPrintDate($finishPrintDate)
-    {
+    public function setFinishPrintDate($finishPrintDate) {
         $this->finishPrintDate = $finishPrintDate;
 
         return $this;
@@ -200,8 +189,7 @@ class Book
      *
      * @return \DateTime
      */
-    public function getFinishPrintDate()
-    {
+    public function getFinishPrintDate() {
         return $this->finishPrintDate;
     }
 
@@ -210,8 +198,7 @@ class Book
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -222,8 +209,7 @@ class Book
      *
      * @return Book
      */
-    public function setBookType(\AppBundle\Entity\BookType $bookType = null)
-    {
+    public function setBookType(\AppBundle\Entity\BookType $bookType = null) {
         $this->bookType = $bookType;
 
         return $this;
@@ -234,8 +220,7 @@ class Book
      *
      * @return \AppBundle\Entity\BookType
      */
-    public function getBookType()
-    {
+    public function getBookType() {
         return $this->bookType;
     }
 
@@ -246,8 +231,7 @@ class Book
      *
      * @return Book
      */
-    public function setResponsibility(\AppBundle\Entity\Employee $responsibility = null)
-    {
+    public function setResponsibility(\AppBundle\Entity\Employee $responsibility = null) {
         $this->responsibility = $responsibility;
 
         return $this;
@@ -258,8 +242,7 @@ class Book
      *
      * @return \AppBundle\Entity\Employee
      */
-    public function getResponsibility()
-    {
+    public function getResponsibility() {
         return $this->responsibility;
     }
 
@@ -270,8 +253,7 @@ class Book
      *
      * @return Book
      */
-    public function setSubject(\AppBundle\Entity\Subject $subject = null)
-    {
+    public function setSubject(\AppBundle\Entity\Subject $subject = null) {
         $this->subject = $subject;
 
         return $this;
@@ -282,10 +264,10 @@ class Book
      *
      * @return \AppBundle\Entity\Subject
      */
-    public function getSubject()
-    {
+    public function getSubject() {
         return $this->subject;
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
@@ -294,8 +276,7 @@ class Book
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->subBooks = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -306,8 +287,7 @@ class Book
      *
      * @return Book
      */
-    public function addSubBook(\AppBundle\Entity\SubBook $subBook)
-    {
+    public function addSubBook(\AppBundle\Entity\SubBook $subBook) {
         $this->subBooks[] = $subBook;
 
         return $this;
@@ -318,8 +298,7 @@ class Book
      *
      * @param \AppBundle\Entity\SubBook $subBook
      */
-    public function removeSubBook(\AppBundle\Entity\SubBook $subBook)
-    {
+    public function removeSubBook(\AppBundle\Entity\SubBook $subBook) {
         $this->subBooks->removeElement($subBook);
     }
 
@@ -328,10 +307,10 @@ class Book
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSubBooks()
-    {
+    public function getSubBooks() {
         return $this->subBooks;
     }
+
     /**
      * @var \DateTime
      */
@@ -352,7 +331,6 @@ class Book
      */
     private $updatedBy;
 
-
     /**
      * Set createdAt
      *
@@ -360,8 +338,7 @@ class Book
      *
      * @return Book
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -372,8 +349,7 @@ class Book
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -384,8 +360,7 @@ class Book
      *
      * @return Book
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -396,8 +371,7 @@ class Book
      *
      * @return \DateTime
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
 
@@ -408,8 +382,7 @@ class Book
      *
      * @return Book
      */
-    public function setCreatedBy(\AppBundle\Entity\FosUser $createdBy = null)
-    {
+    public function setCreatedBy(\AppBundle\Entity\FosUser $createdBy = null) {
         $this->createdBy = $createdBy;
 
         return $this;
@@ -420,8 +393,7 @@ class Book
      *
      * @return \AppBundle\Entity\FosUser
      */
-    public function getCreatedBy()
-    {
+    public function getCreatedBy() {
         return $this->createdBy;
     }
 
@@ -432,8 +404,7 @@ class Book
      *
      * @return Book
      */
-    public function setUpdatedBy(\AppBundle\Entity\FosUser $updatedBy = null)
-    {
+    public function setUpdatedBy(\AppBundle\Entity\FosUser $updatedBy = null) {
         $this->updatedBy = $updatedBy;
 
         return $this;
@@ -444,8 +415,35 @@ class Book
      *
      * @return \AppBundle\Entity\FosUser
      */
-    public function getUpdatedBy()
-    {
+    public function getUpdatedBy() {
         return $this->updatedBy;
     }
+
+    /**
+     * @var \AppBundle\Entity\BookClassification
+     */
+    private $bookClassification;
+
+    /**
+     * Set bookClassification
+     *
+     * @param \AppBundle\Entity\BookClassification $bookClassification
+     *
+     * @return Book
+     */
+    public function setBookClassification(\AppBundle\Entity\BookClassification $bookClassification = null) {
+        $this->bookClassification = $bookClassification;
+
+        return $this;
+    }
+
+    /**
+     * Get bookClassification
+     *
+     * @return \AppBundle\Entity\BookClassification
+     */
+    public function getBookClassification() {
+        return $this->bookClassification;
+    }
+
 }

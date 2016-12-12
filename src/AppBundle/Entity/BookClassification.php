@@ -3,10 +3,10 @@
 namespace AppBundle\Entity;
 
 /**
- * SubBookContainerType
+ * BookClassification
  */
-class SubBookContainerType
-{
+class BookClassification {
+
     /**
      * @var string
      */
@@ -20,15 +20,15 @@ class SubBookContainerType
     public function __toString() {
         return (string) $this->getItem();
     }
+
     /**
      * Set item
      *
      * @param string $item
      *
-     * @return SubBookContainerType
+     * @return BookClassification
      */
-    public function setItem($item)
-    {
+    public function setItem($item) {
         $this->item = $item;
 
         return $this;
@@ -39,8 +39,7 @@ class SubBookContainerType
      *
      * @return string
      */
-    public function getItem()
-    {
+    public function getItem() {
         return $this->item;
     }
 
@@ -49,8 +48,8 @@ class SubBookContainerType
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
+
 }
