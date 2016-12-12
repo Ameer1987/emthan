@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Bookclassifications list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for bookClassification in bookClassifications %}
+            <tr>
+                <td><a href="{{ path('bookclassification_show', { 'id': bookClassification.id }) }}">{{ bookClassification.item }}</a></td>
+                <td>{{ bookClassification.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('bookclassification_show', { 'id': bookClassification.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('bookclassification_edit', { 'id': bookClassification.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('bookclassification_new') }}">Create a new bookClassification</a>
+        </li>
+    </ul>
+{% endblock %}
