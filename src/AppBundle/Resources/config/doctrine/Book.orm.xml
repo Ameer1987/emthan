@@ -5,6 +5,7 @@
             <index name="subject_id" columns="subject_id"/>
             <index name="responsibility_id" columns="responsibility_id"/>
             <index name="book_type_id" columns="book_type_id"/>
+            <index name="book_classification_id" columns="book_classification_id"/>
             <index name="created_by" columns="created_by"/>
             <index name="updated_by" columns="updated_by"/>
         </indexes>
@@ -48,6 +49,11 @@
         <many-to-one field="bookType" target-entity="BookType" fetch="LAZY">
             <join-columns>
                 <join-column name="book_type_id" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-one field="bookClassification" target-entity="BookClassification" fetch="LAZY">
+            <join-columns>
+                <join-column name="book_classification_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
         <many-to-one field="createdBy" target-entity="FosUser" fetch="LAZY">
