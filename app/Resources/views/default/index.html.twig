@@ -27,7 +27,7 @@
                                                                     <ul>
                                                                         {% for subject in subLevel.subjects %}
                                                                             <li>
-                                                                                <a href="{{ path('subjects', { 'subject_id': subject.id }) }}">{{ subject }}</a>
+                                                                                <a href="{{ path('subjects', { 'subject_id': subject.id }) }}" target="_blank">{{ subject }}</a>
                                                                             </li>
                                                                         {% endfor %}
                                                                     </ul>
