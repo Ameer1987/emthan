@@ -16,7 +16,7 @@
         </field>
         <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
         <field name="updatedAt" type="datetime" column="updated_at" nullable="false"/>
-        <many-to-one field="term" target-entity="Term" fetch="LAZY">
+        <many-to-one field="term" target-entity="Term" inversed-by="categories" fetch="LAZY">
             <join-columns>
                 <join-column name="term_id" referenced-column-name="id"/>
             </join-columns>
