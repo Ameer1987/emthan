@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="AppBundle\Entity\Term" table="term">
-    <indexes>
-      <index name="year_id" columns="year_id"/>
-      <index name="created_by" columns="created_by"/>
-      <index name="updated_by" columns="updated_by"/>
-    </indexes>
-    <id name="id" type="integer" column="id">
-      <generator strategy="IDENTITY"/>
-    </id>
-    <field name="item" type="string" column="item" length="255" nullable="false">
-      <options>
-        <option name="fixed"/>
-      </options>
-    </field>
-    <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
-    <field name="updatedAt" type="datetime" column="updated_at" nullable="false"/>
-    <many-to-one field="year" target-entity="Year" fetch="LAZY">
-      <join-columns>
-        <join-column name="year_id" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="createdBy" target-entity="FosUser" fetch="LAZY">
-      <join-columns>
-        <join-column name="created_by" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
-    <many-to-one field="updatedBy" target-entity="FosUser" fetch="LAZY">
-      <join-columns>
-        <join-column name="updated_by" referenced-column-name="id"/>
-      </join-columns>
-    </many-to-one>
-  </entity>
+    <entity name="AppBundle\Entity\Term" table="term">
+        <indexes>
+            <index name="year_id" columns="year_id"/>
+            <index name="created_by" columns="created_by"/>
+            <index name="updated_by" columns="updated_by"/>
+        </indexes>
+        <id name="id" type="integer" column="id">
+            <generator strategy="IDENTITY"/>
+        </id>
+        <field name="item" type="string" column="item" length="255" nullable="false">
+            <options>
+                <option name="fixed"/>
+            </options>
+        </field>
+        <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
+        <field name="updatedAt" type="datetime" column="updated_at" nullable="false"/>
+        <many-to-one field="year" target-entity="Year" fetch="LAZY">
+            <join-columns>
+                <join-column name="year_id" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-one field="createdBy" target-entity="FosUser" fetch="LAZY">
+            <join-columns>
+                <join-column name="created_by" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-one field="updatedBy" target-entity="FosUser" fetch="LAZY">
+            <join-columns>
+                <join-column name="updated_by" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+        <one-to-many field="categories" target-entity="Category" mapped-by="term" />
+    </entity>
 </doctrine-mapping>
