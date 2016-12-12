@@ -13,7 +13,7 @@ class SubBookTypeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('item')->add('subBookContainerType')        ;
+        $builder->add('item');
     }
     
     /**
