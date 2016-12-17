@@ -21,8 +21,8 @@ class BookAdmin extends AbstractAdmin
                 ->add('pages', 'text', array('label' => 'pages'))
                 ->add('sentToPrintDate', 'datetime', array('label' => 'sentToPrintDate'))
                 ->add('finishPrintDate', 'datetime', array('label' => 'finishPrintDate'))
-                ->add('bookType', 'entity', array(
-                    'class' => 'AppBundle\Entity\BookType'
+                ->add('bookClassification', 'entity', array(
+                    'class' => 'AppBundle\Entity\BookClassification'
                 ))
                 ->add('responsibility', 'entity', array(
                     'class' => 'AppBundle\Entity\Employee'
