@@ -4,8 +4,7 @@
         <indexes>
             <index name="subject_id" columns="subject_id"/>
             <index name="responsibility_id" columns="responsibility_id"/>
-            <index name="book_type_id" columns="book_type_id"/>
-            <index name="book_classification_id" columns="book_classification_id"/>
+            
             <index name="created_by" columns="created_by"/>
             <index name="updated_by" columns="updated_by"/>
         </indexes>
@@ -13,6 +12,11 @@
             <generator strategy="IDENTITY"/>
         </id>
         <field name="item" type="string" column="item" length="255" nullable="false">
+            <options>
+                <option name="fixed"/>
+            </options>
+        </field>
+        <field name="book_code" type="string" column="book_code" length="255" nullable="false">
             <options>
                 <option name="fixed"/>
             </options>
@@ -46,26 +50,17 @@
                 <join-column name="responsibility_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <many-to-one field="bookType" target-entity="BookType" fetch="LAZY">
-            <join-columns>
-                <join-column name="book_type_id" referenced-column-name="id"/>
-            </join-columns>
-        </many-to-one>
-        <many-to-one field="bookClassification" target-entity="BookClassification" fetch="LAZY">
-            <join-columns>
-                <join-column name="book_classification_id" referenced-column-name="id"/>
-            </join-columns>
-        </many-to-one>
-        <many-to-one field="createdBy" target-entity="FosUser" fetch="LAZY">
+        
+        <many-to-one field="createdBy" target-entity="User" fetch="LAZY">
             <join-columns>
                 <join-column name="created_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <many-to-one field="updatedBy" target-entity="FosUser" fetch="LAZY">
+        <many-to-one field="updatedBy" target-entity="User" fetch="LAZY">
             <join-columns>
                 <join-column name="updated_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <one-to-many field="subBooks" target-entity="SubBook" mapped-by="book" />
+        <one-to-many field="bookContains" target-entity="BookContain" mapped-by="book" />
     </entity>
 </doctrine-mapping>

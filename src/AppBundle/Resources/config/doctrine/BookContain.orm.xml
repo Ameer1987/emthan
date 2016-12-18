@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-    <entity name="AppBundle\Entity\SubBook" table="sub_book">
+    <entity name="AppBundle\Entity\BookContain" table="book_contain">
         <indexes>
-            <index name="sub_book_type_id" columns="sub_book_type_id"/>
             <index name="book_id" columns="book_id"/>
             <index name="created_by" columns="created_by"/>
             <index name="updated_by" columns="updated_by"/>
@@ -22,21 +21,17 @@
                 <join-column name="book_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <many-to-one field="subBookType" target-entity="SubBookType" fetch="LAZY">
-            <join-columns>
-                <join-column name="sub_book_type_id" referenced-column-name="id"/>
-            </join-columns>
-        </many-to-one>
-        <many-to-one field="updatedBy" target-entity="FosUser" fetch="LAZY">
+        
+        <many-to-one field="updatedBy" target-entity="User" fetch="LAZY">
             <join-columns>
                 <join-column name="updated_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <many-to-one field="createdBy" target-entity="FosUser" fetch="LAZY">
+        <many-to-one field="createdBy" target-entity="User" fetch="LAZY">
             <join-columns>
                 <join-column name="created_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <one-to-many field="brovas" target-entity="Brova" mapped-by="subBook" />
+        <one-to-many field="brovas" target-entity="Brova" mapped-by="BookContain" />
     </entity>
 </doctrine-mapping>
