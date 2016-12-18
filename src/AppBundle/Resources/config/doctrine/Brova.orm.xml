@@ -3,7 +3,7 @@
     <entity name="AppBundle\Entity\Brova" table="brova">
         <indexes>
             <index name="responsibility_id" columns="responsibility_id"/>
-            <index name="sub_book_id" columns="sub_book_id"/>
+            <index name="book_contain_id" columns="book_contain_id"/>
             <index name="created_by" columns="created_by"/>
             <index name="updated_by" columns="updated_by"/>
         </indexes>
@@ -20,7 +20,7 @@
         <field name="expectedDate" type="datetime" column="expected_date" nullable="false"/>
         <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
         <field name="updatedAt" type="datetime" column="updated_at" nullable="false"/>
-        <many-to-one field="updatedBy" target-entity="FosUser" fetch="LAZY">
+        <many-to-one field="updatedBy" target-entity="User" fetch="LAZY">
             <join-columns>
                 <join-column name="updated_by" referenced-column-name="id"/>
             </join-columns>
@@ -30,12 +30,12 @@
                 <join-column name="responsibility_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <many-to-one field="subBook" target-entity="SubBook" inversed-by="brovas" fetch="LAZY">
+        <many-to-one field="BookContain" target-entity="BookContain" inversed-by="brovas" fetch="LAZY">
             <join-columns>
-                <join-column name="sub_book_id" referenced-column-name="id"/>
+                <join-column name="book_contain_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <many-to-one field="createdBy" target-entity="FosUser" fetch="LAZY">
+        <many-to-one field="createdBy" target-entity="User" fetch="LAZY">
             <join-columns>
                 <join-column name="created_by" referenced-column-name="id"/>
             </join-columns>
