@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <entity name="AppBundle\Entity\Level" table="level">
         <indexes>
-            <index name="term_id" columns="category_id"/>
+            <index name="term_id" columns="term_id"/>
             <index name="created_by" columns="created_by"/>
             <index name="updated_by" columns="updated_by"/>
         </indexes>
