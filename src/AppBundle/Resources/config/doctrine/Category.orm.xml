@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <entity name="AppBundle\Entity\Category" table="category">
         <indexes>
-            <index name="term_id" columns="term_id"/>
+            <index name="subject_id" columns="subject_id"/>
             <index name="created_by" columns="created_by"/>
             <index name="updated_by" columns="updated_by"/>
         </indexes>
@@ -16,9 +16,9 @@
         </field>
         <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
         <field name="updatedAt" type="datetime" column="updated_at" nullable="false"/>
-        <many-to-one field="term" target-entity="Term" inversed-by="categories" fetch="LAZY">
+        <many-to-one field="subject" target-entity="Subject" inversed-by="categories" fetch="LAZY">
             <join-columns>
-                <join-column name="term_id" referenced-column-name="id"/>
+                <join-column name="subject_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
         <many-to-one field="createdBy" target-entity="User" fetch="LAZY">
@@ -31,6 +31,6 @@
                 <join-column name="updated_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <one-to-many field="levels" target-entity="Level" mapped-by="category" />
+        <one-to-many field="books" target-entity="Book" mapped-by="category" />
     </entity>
 </doctrine-mapping>

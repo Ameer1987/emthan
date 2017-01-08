@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
     <entity name="AppBundle\Entity\Book" table="book">
         <indexes>
-            <index name="subject_id" columns="subject_id"/>
+            <index name="category_id" columns="subject_id"/>
             <index name="responsibility_id" columns="responsibility_id"/>
             
             <index name="created_by" columns="created_by"/>
@@ -40,9 +40,9 @@
         <field name="finishPrintDate" type="datetime" column="finish_print_date" nullable="false"/>
         <field name="createdAt" type="datetime" column="created_at" nullable="false"/>
         <field name="updatedAt" type="datetime" column="updated_at" nullable="false"/>
-        <many-to-one field="subject" target-entity="Subject" inversed-by="books" fetch="LAZY">
+        <many-to-one field="category" target-entity="Category" inversed-by="books" fetch="LAZY">
             <join-columns>
-                <join-column name="subject_id" referenced-column-name="id"/>
+                <join-column name="category_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
         <many-to-one field="responsibility" target-entity="Employee" fetch="LAZY">
@@ -61,6 +61,6 @@
                 <join-column name="updated_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <one-to-many field="bookContains" target-entity="BookContain" mapped-by="book" />
+        <one-to-many field="bookContents" target-entity="BookContent" mapped-by="book" />
     </entity>
 </doctrine-mapping>
