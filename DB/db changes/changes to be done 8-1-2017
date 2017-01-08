@@ -1,0 +1,5 @@
+1- swap category (الشرح و المراجعة)
+2- create book_units table
+3- rename book_contains to book_contents
+4- put the book_unit_id instead of book_id in the book_contents table
+5- Adjust the entities, controllers, forms and sonata forms after editing the schema
