@@ -13,7 +13,7 @@ class BrovaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('item')->add('receivedDate')->add('sentDate')->add('expectedDate')->add('createdAt')->add('updatedAt')->add('updatedBy')->add('createdBy')->add('subBook')->add('responsibility')        ;
+        $builder->add('item')->add('receivedDate')->add('sentDate')->add('expectedDate')->add('createdAt')->add('updatedAt')->add('updatedBy')->add('responsibility')->add('BookContent')->add('createdBy')        ;
     }
     
     /**

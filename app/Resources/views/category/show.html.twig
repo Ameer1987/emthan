@@ -10,16 +10,8 @@
                 <td>{{ category.item }}</td>
             </tr>
             <tr>
-                <th>Createdby</th>
-                <td>{{ category.createdBy }}</td>
-            </tr>
-            <tr>
                 <th>Createdat</th>
                 <td>{% if category.createdAt %}{{ category.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Updatedby</th>
-                <td>{{ category.updatedBy }}</td>
             </tr>
             <tr>
                 <th>Updatedat</th>

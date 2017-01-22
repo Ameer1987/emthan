@@ -13,7 +13,7 @@ class EmployeeTypeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('item')->add('id')        ;
+        $builder->add('item')        ;
     }
     
     /**

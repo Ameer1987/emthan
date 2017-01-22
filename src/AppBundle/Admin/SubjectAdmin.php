@@ -32,5 +32,24 @@ class SubjectAdmin extends AbstractAdmin
         $listMapper->addIdentifier('item')->addIdentifier('subLevel')        ;
     }
     
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Subject'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'appbundle_subject';
+    }
+
+    
     
 }

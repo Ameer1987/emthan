@@ -7,10 +7,9 @@
         <thead>
             <tr>
                 <th>Item</th>
+                <th>Isdefault</th>
                 <th>Createdat</th>
-                <th>Createdby</th>
                 <th>Updatedat</th>
-                <th>Updatedby</th>
                 <th>Id</th>
                 <th>Actions</th>
             </tr>
@@ -19,10 +18,9 @@
         {% for year in years %}
             <tr>
                 <td><a href="{{ path('year_show', { 'id': year.id }) }}">{{ year.item }}</a></td>
+                <td>{% if year.isDefault %}Yes{% else %}No{% endif %}</td>
                 <td>{% if year.createdAt %}{{ year.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ year.createdBy }}</td>
                 <td>{% if year.updatedAt %}{{ year.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ year.updatedBy }}</td>
                 <td>{{ year.id }}</td>
                 <td>
                     <ul>

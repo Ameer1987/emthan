@@ -268,48 +268,7 @@ class Book {
         return $this->subject;
     }
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $subBooks;
 
-    /**
-     * Constructor
-     */
-    public function __construct() {
-        $this->subBooks = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add subBook
-     *
-     * @param \AppBundle\Entity\SubBook $subBook
-     *
-     * @return Book
-     */
-    public function addSubBook(\AppBundle\Entity\SubBook $subBook) {
-        $this->subBooks[] = $subBook;
-
-        return $this;
-    }
-
-    /**
-     * Remove subBook
-     *
-     * @param \AppBundle\Entity\SubBook $subBook
-     */
-    public function removeSubBook(\AppBundle\Entity\SubBook $subBook) {
-        $this->subBooks->removeElement($subBook);
-    }
-
-    /**
-     * Get subBooks
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSubBooks() {
-        return $this->subBooks;
-    }
 
     /**
      * @var \DateTime
@@ -419,31 +378,104 @@ class Book {
         return $this->updatedBy;
     }
 
-    /**
-     * @var \AppBundle\Entity\BookClassification
-     */
-    private $bookClassification;
+    
+    
 
     /**
-     * Set bookClassification
+     * @var string
+     */
+    private $book_code;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $bookContents;
+
+    /**
+     * @var \AppBundle\Entity\Category
+     */
+    private $category;
+
+
+    /**
+     * Set bookCode
      *
-     * @param \AppBundle\Entity\BookClassification $bookClassification
+     * @param string $bookCode
      *
      * @return Book
      */
-    public function setBookClassification(\AppBundle\Entity\BookClassification $bookClassification = null) {
-        $this->bookClassification = $bookClassification;
+    public function setBookCode($bookCode)
+    {
+        $this->book_code = $bookCode;
 
         return $this;
     }
 
     /**
-     * Get bookClassification
+     * Get bookCode
      *
-     * @return \AppBundle\Entity\BookClassification
+     * @return string
      */
-    public function getBookClassification() {
-        return $this->bookClassification;
+    public function getBookCode()
+    {
+        return $this->book_code;
     }
 
+    /**
+     * Add bookContent
+     *
+     * @param \AppBundle\Entity\BookContent $bookContent
+     *
+     * @return Book
+     */
+    public function addBookContent(\AppBundle\Entity\BookContent $bookContent)
+    {
+        $this->bookContents[] = $bookContent;
+
+        return $this;
+    }
+
+    /**
+     * Remove bookContent
+     *
+     * @param \AppBundle\Entity\BookContent $bookContent
+     */
+    public function removeBookContent(\AppBundle\Entity\BookContent $bookContent)
+    {
+        $this->bookContents->removeElement($bookContent);
+    }
+
+    /**
+     * Get bookContents
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBookContents()
+    {
+        return $this->bookContents;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Book
+     */
+    public function setCategory(\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
 }

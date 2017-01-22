@@ -22,6 +22,14 @@
                 <td>{{ cover.notes }}</td>
             </tr>
             <tr>
+                <th>Createdat</th>
+                <td>{% if cover.createdAt %}{{ cover.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if cover.updatedAt %}{{ cover.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
                 <th>Id</th>
                 <td>{{ cover.id }}</td>
             </tr>

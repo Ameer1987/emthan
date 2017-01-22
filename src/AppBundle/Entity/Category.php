@@ -246,4 +246,72 @@ class Category
     {
         return $this->levels;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $books;
+
+    /**
+     * @var \AppBundle\Entity\Subject
+     */
+    private $subject;
+
+
+    /**
+     * Add book
+     *
+     * @param \AppBundle\Entity\Book $book
+     *
+     * @return Category
+     */
+    public function addBook(\AppBundle\Entity\Book $book)
+    {
+        $this->books[] = $book;
+
+        return $this;
+    }
+
+    /**
+     * Remove book
+     *
+     * @param \AppBundle\Entity\Book $book
+     */
+    public function removeBook(\AppBundle\Entity\Book $book)
+    {
+        $this->books->removeElement($book);
+    }
+
+    /**
+     * Get books
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBooks()
+    {
+        return $this->books;
+    }
+
+    /**
+     * Set subject
+     *
+     * @param \AppBundle\Entity\Subject $subject
+     *
+     * @return Category
+     */
+    public function setSubject(\AppBundle\Entity\Subject $subject = null)
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Get subject
+     *
+     * @return \AppBundle\Entity\Subject
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
 }

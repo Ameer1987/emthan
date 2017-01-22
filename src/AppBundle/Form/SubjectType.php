@@ -13,7 +13,7 @@ class SubjectType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')->add('updatedAt')->add('subLevel')        ;
+        $builder->add('item')->add('createdAt')->add('updatedAt')->add('subLevel')->add('createdBy')->add('updatedBy')        ;
     }
     
     /**

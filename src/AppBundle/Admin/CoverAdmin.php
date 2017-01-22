@@ -30,5 +30,24 @@ class CoverAdmin extends AbstractAdmin
     {
         $listMapper->addIdentifier('colors')->addIdentifier('solofanMatly')->addIdentifier('solofanLamea')->addIdentifier('notes')->addIdentifier('responsibility')->addIdentifier('book')        ;
     }
+    
+        /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Cover'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'appbundle_cover';
+    }
+
 
 }

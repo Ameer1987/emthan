@@ -314,4 +314,33 @@ class Brova
     {
         return $this->responsibility;
     }
+    /**
+     * @var \AppBundle\Entity\BookContent
+     */
+    private $BookContent;
+
+
+    /**
+     * Set bookContent
+     *
+     * @param \AppBundle\Entity\BookContent $bookContent
+     *
+     * @return Brova
+     */
+    public function setBookContent(\AppBundle\Entity\BookContent $bookContent = null)
+    {
+        $this->BookContent = $bookContent;
+
+        return $this;
+    }
+
+    /**
+     * Get bookContent
+     *
+     * @return \AppBundle\Entity\BookContent
+     */
+    public function getBookContent()
+    {
+        return $this->BookContent;
+    }
 }

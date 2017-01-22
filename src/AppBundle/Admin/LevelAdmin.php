@@ -15,20 +15,38 @@ class LevelAdmin extends AbstractAdmin
     {
         $formMapper
                 ->add('item', 'text')
-                ->add('category', 'entity', array(
-                    'class' => 'AppBundle\Entity\Category'
+                ->add('term', 'entity', array(
+                    'class' => 'AppBundle\Entity\Term'
                 ))
                 ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('item')->add('category')        ;
+        $datagridMapper->add('item')->add('term')        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('item')->addIdentifier('category')        ;
+        $listMapper->addIdentifier('item')->addIdentifier('term')        ;
+    }
+    
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Level'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'appbundle_level';
     }
     
     

@@ -10,16 +10,8 @@
                 <td>{{ term.item }}</td>
             </tr>
             <tr>
-                <th>Createdby</th>
-                <td>{{ term.createdBy }}</td>
-            </tr>
-            <tr>
                 <th>Createdat</th>
                 <td>{% if term.createdAt %}{{ term.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Updatedby</th>
-                <td>{{ term.updatedBy }}</td>
             </tr>
             <tr>
                 <th>Updatedat</th>

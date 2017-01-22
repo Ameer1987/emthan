@@ -7,9 +7,7 @@
         <thead>
             <tr>
                 <th>Item</th>
-                <th>Createdby</th>
                 <th>Createdat</th>
-                <th>Updatedby</th>
                 <th>Updatedat</th>
                 <th>Id</th>
                 <th>Actions</th>
@@ -19,9 +17,7 @@
         {% for term in terms %}
             <tr>
                 <td><a href="{{ path('term_show', { 'id': term.id }) }}">{{ term.item }}</a></td>
-                <td>{{ term.createdBy }}</td>
                 <td>{% if term.createdAt %}{{ term.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ term.updatedBy }}</td>
                 <td>{% if term.updatedAt %}{{ term.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ term.id }}</td>
                 <td>

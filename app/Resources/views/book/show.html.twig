@@ -10,6 +10,10 @@
                 <td>{{ book.item }}</td>
             </tr>
             <tr>
+                <th>Book_code</th>
+                <td>{{ book.bookcode }}</td>
+            </tr>
+            <tr>
                 <th>Price</th>
                 <td>{{ book.price }}</td>
             </tr>
@@ -28,6 +32,14 @@
             <tr>
                 <th>Finishprintdate</th>
                 <td>{% if book.finishPrintDate %}{{ book.finishPrintDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if book.createdAt %}{{ book.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if book.updatedAt %}{{ book.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
                 <th>Id</th>

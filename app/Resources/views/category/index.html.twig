@@ -7,9 +7,7 @@
         <thead>
             <tr>
                 <th>Item</th>
-                <th>Createdby</th>
                 <th>Createdat</th>
-                <th>Updatedby</th>
                 <th>Updatedat</th>
                 <th>Id</th>
                 <th>Actions</th>
@@ -19,9 +17,7 @@
         {% for category in categories %}
             <tr>
                 <td><a href="{{ path('category_show', { 'id': category.id }) }}">{{ category.item }}</a></td>
-                <td>{{ category.createdBy }}</td>
                 <td>{% if category.createdAt %}{{ category.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ category.updatedBy }}</td>
                 <td>{% if category.updatedAt %}{{ category.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ category.id }}</td>
                 <td>

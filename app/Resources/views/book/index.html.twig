@@ -7,11 +7,14 @@
         <thead>
             <tr>
                 <th>Item</th>
+                <th>Book_code</th>
                 <th>Price</th>
                 <th>Color</th>
                 <th>Pages</th>
                 <th>Senttoprintdate</th>
                 <th>Finishprintdate</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
                 <th>Id</th>
                 <th>Actions</th>
             </tr>
@@ -20,11 +23,14 @@
         {% for book in books %}
             <tr>
                 <td><a href="{{ path('book_show', { 'id': book.id }) }}">{{ book.item }}</a></td>
+                <td>{{ book.bookcode }}</td>
                 <td>{{ book.price }}</td>
                 <td>{{ book.color }}</td>
                 <td>{{ book.pages }}</td>
                 <td>{% if book.sentToPrintDate %}{{ book.sentToPrintDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if book.finishPrintDate %}{{ book.finishPrintDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if book.createdAt %}{{ book.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if book.updatedAt %}{{ book.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ book.id }}</td>
                 <td>
                     <ul>

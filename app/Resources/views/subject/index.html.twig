@@ -7,9 +7,7 @@
         <thead>
             <tr>
                 <th>Item</th>
-                <th>Createdby</th>
                 <th>Createdat</th>
-                <th>Updatedby</th>
                 <th>Updatedat</th>
                 <th>Id</th>
                 <th>Actions</th>
@@ -19,9 +17,7 @@
         {% for subject in subjects %}
             <tr>
                 <td><a href="{{ path('subject_show', { 'id': subject.id }) }}">{{ subject.item }}</a></td>
-                <td>{{ subject.createdBy }}</td>
                 <td>{% if subject.createdAt %}{{ subject.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ subject.updatedBy }}</td>
                 <td>{% if subject.updatedAt %}{{ subject.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ subject.id }}</td>
                 <td>

@@ -10,6 +10,8 @@
                 <th>Solofanmatly</th>
                 <th>Solofanlamea</th>
                 <th>Notes</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
                 <th>Id</th>
                 <th>Actions</th>
             </tr>
@@ -21,6 +23,8 @@
                 <td>{% if cover.solofanMatly %}Yes{% else %}No{% endif %}</td>
                 <td>{% if cover.solofanLamea %}Yes{% else %}No{% endif %}</td>
                 <td>{{ cover.notes }}</td>
+                <td>{% if cover.createdAt %}{{ cover.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if cover.updatedAt %}{{ cover.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ cover.id }}</td>
                 <td>
                     <ul>

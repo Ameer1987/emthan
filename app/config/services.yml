@@ -11,12 +11,6 @@ services:
         tags:
             - { name: sonata.admin, manager_type: orm, label: Book }
     
-    admin.book_classification:
-        class: AppBundle\Admin\BookClassificationAdmin
-        arguments: [~, AppBundle\Entity\BookClassification, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: BookClassification } 
-    
     admin.brova:
         class: AppBundle\Admin\BrovaAdmin
         arguments: [~, AppBundle\Entity\Brova, ~]
@@ -55,26 +49,6 @@ services:
         arguments: [~, AppBundle\Entity\Level, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Level} 
-            
-            
-    admin.sub_book:
-        class: AppBundle\Admin\SubBookAdmin
-        arguments: [~, AppBundle\Entity\SubBook, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: SubBook} 
-            
-    admin.sub_book_container_type:
-        class: AppBundle\Admin\SubBookContainerTypeAdmin
-        arguments: [~, AppBundle\Entity\SubBookContainerType, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: SubBookContainerType} 
-            
-    
-    admin.sub_book_type:
-        class: AppBundle\Admin\SubBookTypeAdmin
-        arguments: [~, AppBundle\Entity\SubBookType, ~]
-        tags:
-            - { name: sonata.admin, manager_type: orm, label: SubBookType} 
             
             
             

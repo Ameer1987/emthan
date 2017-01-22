@@ -13,7 +13,7 @@ class BookType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('bookType')->add('bookClassification')->add('responsibility')->add('subject')        ;
+        $builder->add('item')->add('book_code')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('createdAt')->add('updatedAt')->add('category')->add('responsibility')->add('createdBy')->add('updatedBy')        ;
     }
     
     /**

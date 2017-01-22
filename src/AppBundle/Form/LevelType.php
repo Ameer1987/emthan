@@ -13,7 +13,7 @@ class LevelType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('item')->add('createdAt')->add('createdBy')->add('updatedAt')->add('updatedBy')->add('category')        ;
+        $builder->add('item')->add('createdAt')->add('updatedAt')->add('term')->add('createdBy')->add('updatedBy')        ;
     }
     
     /**

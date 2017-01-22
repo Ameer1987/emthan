@@ -16,30 +16,29 @@ class BookAdmin extends AbstractAdmin
     {
         $formMapper
                 ->add('item', 'text', array('label' => 'book'))
+                ->add('book_code', 'text',array('label' => 'book_code'))
                 ->add('price', 'text', array('label' => 'price'))
                 ->add('color', 'text', array('label' => 'color'))
                 ->add('pages', 'text', array('label' => 'pages'))
                 ->add('sentToPrintDate', 'datetime', array('label' => 'sentToPrintDate'))
                 ->add('finishPrintDate', 'datetime', array('label' => 'finishPrintDate'))
-                ->add('bookClassification', 'entity', array(
-                    'class' => 'AppBundle\Entity\BookClassification'
-                ))
+                
                 ->add('responsibility', 'entity', array(
                     'class' => 'AppBundle\Entity\Employee'
                 ))
-                ->add('subject', 'entity', array(
-                    'class' => 'AppBundle\Entity\Subject'
+                ->add('category', 'entity', array(
+                    'class' => 'AppBundle\Entity\Category'
                 ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('bookType')->add('responsibility')->add('subject')        ;
+        $datagridMapper->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('responsibility')->add('category')        ;
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('bookType')->add('responsibility')->add('subject');
+        $listMapper->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('responsibility')->add('category');
     }
     
     

@@ -10,16 +10,8 @@
                 <td>{{ subject.item }}</td>
             </tr>
             <tr>
-                <th>Createdby</th>
-                <td>{{ subject.createdBy }}</td>
-            </tr>
-            <tr>
                 <th>Createdat</th>
                 <td>{% if subject.createdAt %}{{ subject.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Updatedby</th>
-                <td>{{ subject.updatedBy }}</td>
             </tr>
             <tr>
                 <th>Updatedat</th>

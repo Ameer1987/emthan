@@ -17,20 +17,36 @@ class BrovaAdmin extends AbstractAdmin
                 ->add('receivedDate', 'datetime')
                 ->add('sentDate', 'datetime')
                 ->add('expectedDate', 'datetime')
-                ->add('subBook')
+                ->add('BookContent')
                 ->add('responsibility');
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('item')->add('receivedDate')->add('sentDate')->add('expectedDate')->add('createdAt')->add('updatedAt')->add('updatedBy')->add('createdBy')->add('subBook')->add('responsibility');
+        $datagridMapper->add('item')->add('receivedDate')->add('sentDate')->add('expectedDate')->add('createdAt')->add('updatedAt')->add('updatedBy')->add('createdBy')->add('BookContent')->add('responsibility');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('item')->addIdentifier('receivedDate')->addIdentifier('sentDate')->addIdentifier('expectedDate')->addIdentifier('createdAt')->addIdentifier('updatedAt')->addIdentifier('updatedBy')->addIdentifier('createdBy')->addIdentifier('subBook')->addIdentifier('responsibility');
+        $listMapper->addIdentifier('item')->addIdentifier('receivedDate')->addIdentifier('sentDate')->addIdentifier('expectedDate')->addIdentifier('createdAt')->addIdentifier('updatedAt')->addIdentifier('updatedBy')->addIdentifier('createdBy')->addIdentifier('BookContent')->addIdentifier('responsibility');
     }
     
- 
+        /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults(array(
+            'data_class' => 'AppBundle\Entity\Brova'
+        ));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getBlockPrefix()
+    {
+        return 'appbundle_brova';
+    }
 
 }

@@ -13,7 +13,7 @@ class CoverType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('colors')->add('solofanMatly')->add('solofanLamea')->add('notes')->add('responsibility')->add('book')        ;
+        $builder->add('colors')->add('solofanMatly')->add('solofanLamea')->add('notes')->add('createdAt')->add('updatedAt')->add('book')->add('responsibility')->add('createdBy')->add('updatedBy')        ;
     }
     
     /**

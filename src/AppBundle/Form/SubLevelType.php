@@ -13,7 +13,7 @@ class SubLevelType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('item')->add('createdBy')->add('createdAt')->add('updatedBy')->add('updatedAt')->add('level')        ;
+        $builder->add('item')->add('createdAt')->add('updatedAt')->add('level')->add('createdBy')->add('updatedBy')        ;
     }
     
     /**
