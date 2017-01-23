@@ -35,7 +35,7 @@ class IdentifiableSubscriber implements EventSubscriber {
     }
 
     protected function handleEvent($entity) {
-        if ($this->isInstanceOf($entity, array('Year'))) {
+        if ($this->isInstanceOf($entity, array('Year', 'Term', 'Level', 'SubLevel', 'Subject', 'Category', 'Book'))) {
             $user = $this->tokenStorage->getToken()->getUser();
 
             $entity->setUpdatedAt(new \DateTime('now'));
