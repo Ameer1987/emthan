@@ -36,16 +36,16 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/subjects/{subject_id}", name="subjects")
+     * @Route("/categories/{category_id}", name="categories")
      */
-    public function subjectsAction($subject_id, Request $request) {
+    public function subjectsAction($category_id, Request $request) {
         $em = $this->getDoctrine()->getManager();
 
-        $subject = $em->getRepository('AppBundle:Subject')->findOneById($subject_id);
+        $category = $em->getRepository('AppBundle:Category')->findOneById($category_id);
 
         // replace this example code with whatever you need
-        return $this->render('default/subjects.html.twig', [
-                    'subject' => $subject,
+        return $this->render('default/categories.html.twig', [
+                    'category' => $category,
         ]);
     }
 
