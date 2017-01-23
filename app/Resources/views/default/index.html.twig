@@ -27,7 +27,7 @@
                                                                     <ul>
                                                                         {% for category in subject.categories %}
                                                                             <li>
-                                                                                <a href="{{ path('subjects', { 'subject_id': category.id }) }}" target="_blank">{{ category }}</a>
+                                                                                <a href="{{ path('categories', { 'category_id': category.id }) }}" target="_blank">{{ category }}</a>
                                                                             </li>
                                                                         {% endfor %}
                                                                     </ul>
