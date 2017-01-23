@@ -32,6 +32,6 @@
                 <join-column name="updated_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <one-to-many field="books" target-entity="Book" mapped-by="subject" />
+        <one-to-many field="categories" target-entity="Category" mapped-by="subject" />
     </entity>
 </doctrine-mapping>
