@@ -96,4 +96,11 @@ services:
             - { name: sonata.admin, manager_type: orm, label: Year } 
             
             
-            
+    
+    
+    
+    app.identifiable:
+        class: AppBundle\EventSubscriber\IdentifiableSubscriber
+        arguments: ['@security.token_storage']
+        tags:
+            - { name: doctrine.event_subscriber }
