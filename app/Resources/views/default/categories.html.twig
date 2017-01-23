@@ -1,0 +1,28 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block sonata_page_content %}
+    <div class="tree" style="display: none;">
+        <ul>
+            <li>
+                <a href="#">
+                    {{ category.subject ~ ' - ' ~ category }}
+                </a>
+                <ul>
+                    {% for book in category.books %}
+                        <li>
+                            <a href="#">{{ book }}({{ book.BookType }})</a>
+                            <ul>
+                                {% for subBook in book.subBooks %}
+                                    <li>
+                                        <a href="{{ path('sub_books', { 'sub_book_id': subBook.id }) }}">{{ subBook }}({{ subBook.subBookType }})</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
