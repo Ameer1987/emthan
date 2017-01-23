@@ -1,0 +1,9 @@
+Magdy:
+1- translation for book_code in the book form, and other form translations
+2- bug in employee_type_id in the employee table (database)
+3- new user registration
+4- names to be shown to the user in the droplists of the forms (names of foreign key tables)
+
+Ameer:
+1- The page of the books
+2- The ajax containing the units, lessons and the book properties.
