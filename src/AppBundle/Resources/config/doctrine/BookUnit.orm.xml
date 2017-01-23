@@ -32,6 +32,6 @@
                 <join-column name="created_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <one-to-many field="brovas" target-entity="Brova" mapped-by="BookUnit" />
+        <one-to-many field="bookContents" target-entity="BookContent" mapped-by="bookUnit" />
     </entity>
 </doctrine-mapping>
