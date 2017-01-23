@@ -31,6 +31,6 @@
                 <join-column name="updated_by" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <!--<one-to-many field="levels" target-entity="Level" mapped-by="term" />-->
+        <one-to-many field="levels" target-entity="Level" mapped-by="term" />
     </entity>
 </doctrine-mapping>
