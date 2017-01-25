@@ -83,4 +83,33 @@ class Employee
     {
         return $this->id;
     }
+    /**
+     * @var \AppBundle\Entity\EmployeeType
+     */
+    private $EmployeeType;
+
+
+    /**
+     * Set employeeType
+     *
+     * @param \AppBundle\Entity\EmployeeType $employeeType
+     *
+     * @return Employee
+     */
+    public function setEmployeeType(\AppBundle\Entity\EmployeeType $employeeType = null)
+    {
+        $this->EmployeeType = $employeeType;
+
+        return $this;
+    }
+
+    /**
+     * Get employeeType
+     *
+     * @return \AppBundle\Entity\EmployeeType
+     */
+    public function getEmployeeType()
+    {
+        return $this->EmployeeType;
+    }
 }

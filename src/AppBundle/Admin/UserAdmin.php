@@ -14,7 +14,11 @@ class UserAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-                ->add('username')->add('usernameCanonical')->add('email')->add('emailCanonical')->add('enabled')->add('password', 'password')->add('roles')        ;
+                ->add('username')
+                ->add('email')
+                ->add('enabled')
+//                ->add('password', 'password')
+                ->add('roles')        ;
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

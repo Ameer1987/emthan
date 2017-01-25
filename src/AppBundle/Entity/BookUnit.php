@@ -242,4 +242,43 @@ class BookUnit
     {
         return $this->createdBy;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $bookContents;
+
+
+    /**
+     * Add bookContent
+     *
+     * @param \AppBundle\Entity\BookContent $bookContent
+     *
+     * @return BookUnit
+     */
+    public function addBookContent(\AppBundle\Entity\BookContent $bookContent)
+    {
+        $this->bookContents[] = $bookContent;
+
+        return $this;
+    }
+
+    /**
+     * Remove bookContent
+     *
+     * @param \AppBundle\Entity\BookContent $bookContent
+     */
+    public function removeBookContent(\AppBundle\Entity\BookContent $bookContent)
+    {
+        $this->bookContents->removeElement($bookContent);
+    }
+
+    /**
+     * Get bookContents
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBookContents()
+    {
+        return $this->bookContents;
+    }
 }

@@ -17,7 +17,8 @@ class SubjectAdmin extends AbstractAdmin
                 ->add('item', 'text')
                 
                 ->add('subLevel', 'entity' , array(
-                    'class' => 'AppBundle\Entity\SubLevel'
+                    'class' => 'AppBundle\Entity\SubLevel',
+                    'group_by' => 'level'
                 ))
                 ;
     }

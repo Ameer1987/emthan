@@ -15,7 +15,8 @@ class SubLevelAdmin extends AbstractAdmin
         $formMapper
                 ->add('item', 'text')
                 ->add('level', 'entity', array(
-                    'class' => 'AppBundle\Entity\Level'
+                    'class' => 'AppBundle\Entity\Level',
+                    'group_by' => 'term'
                 ))
                 ;
     }

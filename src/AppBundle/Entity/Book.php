@@ -478,4 +478,50 @@ class Book {
     {
         return $this->category;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $bookUnits;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->bookUnits = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add bookUnit
+     *
+     * @param \AppBundle\Entity\BookUnit $bookUnit
+     *
+     * @return Book
+     */
+    public function addBookUnit(\AppBundle\Entity\BookUnit $bookUnit)
+    {
+        $this->bookUnits[] = $bookUnit;
+
+        return $this;
+    }
+
+    /**
+     * Remove bookUnit
+     *
+     * @param \AppBundle\Entity\BookUnit $bookUnit
+     */
+    public function removeBookUnit(\AppBundle\Entity\BookUnit $bookUnit)
+    {
+        $this->bookUnits->removeElement($bookUnit);
+    }
+
+    /**
+     * Get bookUnits
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getBookUnits()
+    {
+        return $this->bookUnits;
+    }
 }
