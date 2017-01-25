@@ -1,0 +1,9 @@
+book: Book
+price: Price
+color: Colour
+pages: Number of pages
+sentToPrintDate: Date of sending to Print
+finishPrintDate: Date of finishing Print
+book_code: Book code
+
+
