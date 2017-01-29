@@ -43,11 +43,6 @@ class Book {
     private $id;
 
     /**
-     * @var \AppBundle\Entity\BookType
-     */
-    private $bookType;
-
-    /**
      * @var \AppBundle\Entity\Employee
      */
     private $responsibility;
@@ -202,27 +197,6 @@ class Book {
         return $this->id;
     }
 
-    /**
-     * Set bookType
-     *
-     * @param \AppBundle\Entity\BookType $bookType
-     *
-     * @return Book
-     */
-    public function setBookType(\AppBundle\Entity\BookType $bookType = null) {
-        $this->bookType = $bookType;
-
-        return $this;
-    }
-
-    /**
-     * Get bookType
-     *
-     * @return \AppBundle\Entity\BookType
-     */
-    public function getBookType() {
-        return $this->bookType;
-    }
 
     /**
      * Set responsibility
