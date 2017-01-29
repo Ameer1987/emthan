@@ -1,0 +1,55 @@
+<br/>
+<div class="row-fluid">
+    <div class="span11" dir="rtl">
+        <div class="panel panel-info">
+            <div class="panel-heading">معلومات عن الكتاب</div>
+            <div class="panel-body">
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>اسم الكتاب: </th>
+                            <td>{{ book.item }}</td>
+                        </tr>
+                        <tr>
+                            <th>الكود: </th>
+                            <td>{{ book.bookcode }}</td>
+                        </tr>
+                        <tr>
+                            <th>السعر: </th>
+                            <td>{{ book.price }}</td>
+                        </tr>
+                        <tr>
+                            <th>اللون: </th>
+                            <td>{{ book.color }}</td>
+                        </tr>
+                        <tr>
+                            <th>الصفحات</th>
+                            <td>{{ book.pages }}</td>
+                        </tr>
+                        <tr>
+                            <th>تاريخ الارسال الي الطباعة: </th>
+                            <td>{% if book.sentToPrintDate %}{{ book.sentToPrintDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>تاريخ الانتهاء من الطباعة: </th>
+                            <td>{% if book.finishPrintDate %}{{ book.finishPrintDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>تاريخ الانشاء: </th>
+                            <td>{% if book.createdAt %}{{ book.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <th>تاريخ اخر تعديل: </th>
+                            <td>{% if book.updatedAt %}{{ book.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="pull-left">
+                    <button class="btn btn-primary edit-book">تعديل</button>
+                    <button class="btn-danger btn delete-book">حذف الكتاب</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
