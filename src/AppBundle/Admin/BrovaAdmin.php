@@ -23,12 +23,12 @@ class BrovaAdmin extends AbstractAdmin
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('item')->add('receivedDate')->add('sentDate')->add('expectedDate')->add('createdAt')->add('updatedAt')->add('updatedBy')->add('createdBy')->add('BookContent')->add('responsibility');
+        $datagridMapper->add('item')->add('receivedDate')->add('sentDate')->add('expectedDate')->add('BookContent')->add('responsibility');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('item')->addIdentifier('receivedDate')->addIdentifier('sentDate')->addIdentifier('expectedDate')->addIdentifier('createdAt')->addIdentifier('updatedAt')->addIdentifier('updatedBy')->addIdentifier('createdBy')->addIdentifier('BookContent')->addIdentifier('responsibility');
+        $listMapper->addIdentifier('item')->addIdentifier('receivedDate')->addIdentifier('sentDate')->addIdentifier('expectedDate')->addIdentifier('BookContent')->addIdentifier('responsibility');
     }
     
         /**
