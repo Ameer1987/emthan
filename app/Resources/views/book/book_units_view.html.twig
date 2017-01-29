@@ -6,18 +6,10 @@
             <div class="panel-body">
                 <table>
                     <tbody>
-                        {% for bookUnit in book.BookUnits %}
+                        {% for bookUnit in book.bookUnits %}
                             <tr>
                                 <th>الاسم: </th>
-                                <td>{{ bookUnit.item }}</td>
-                            </tr>
-                            <tr>
-                                <th>تاريخ الانشاء: </th>
-                                <td>{% if bookUnit.createdAt %}{{ bookUnit.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                            </tr>
-                            <tr>
-                                <th>تاريخ اخر تعديل: </th>
-                                <td>{% if bookUnit.updatedAt %}{{ bookUnit.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>&nbsp;{{ bookUnit.item }}</td>
                             </tr>
                         {% endfor %}
                     </tbody>
