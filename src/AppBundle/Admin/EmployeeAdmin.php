@@ -15,17 +15,19 @@ class EmployeeAdmin extends AbstractAdmin
     {
         $formMapper
                 ->add('name', 'text')
-                ->add('employeeTypeId', 'text');
+                ->add('EmployeeType', 'entity', array(
+                    'class' => 'AppBundle\Entity\EmployeeType'
+                ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('name')->add('employeeTypeId');
+        $datagridMapper->add('name')->add('EmployeeType');
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('name')->addIdentifier('employeeTypeId');
+        $listMapper->addIdentifier('name')->addIdentifier('EmployeeType');
     }
     
 }
