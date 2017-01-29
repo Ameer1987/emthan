@@ -161,4 +161,20 @@ class BookController extends Controller {
         ));
     }
 
+    /**
+     * Lists all book entities.
+     *
+     * @Route("/view_contents/{id}", name="book_view_contents")
+     * @Method("GET")
+     */
+    public function viewBookContentsAction($id) {
+        $em = $this->getDoctrine()->getManager();
+
+        $book = $em->getRepository('AppBundle:Book')->findOneById($id);
+
+        return $this->render('book/book_contents_view.html.twig', array(
+                    'book' => $book,
+        ));
+    }
+
 }
