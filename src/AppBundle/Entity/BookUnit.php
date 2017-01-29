@@ -47,6 +47,10 @@ class BookUnit
      */
     private $createdBy;
 
+        public function __toString() {
+        return (string) $this->getItem();
+    }
+
     /**
      * Constructor
      */
