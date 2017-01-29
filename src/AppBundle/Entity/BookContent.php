@@ -46,6 +46,11 @@ class BookContent
      * @var \AppBundle\Entity\User
      */
     private $createdBy;
+    
+        public function __toString() {
+        return (string) $this->getItem();
+    }
+
 
     /**
      * Constructor
