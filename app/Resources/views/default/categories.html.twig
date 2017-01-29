@@ -1,35 +1,48 @@
 {% extends 'SonataAdminBundle::standard_layout.html.twig' %}
 
 {% block sonata_page_content %}
-    <div class="tree" style="display: none;">
-        <ul>
-            <li>
-                <a href="#">
-                    {{ category.subject ~ ' - ' ~ category }}
-                </a>
+    <div class="row-fluid">
+        <div class="span6">
+            <div class="tree" style="display: none;">
                 <ul>
-                    {% for book in category.books %}
-                        <li>
-                            <a href="#">{{ book }}</a>
-                            <ul>
+                    <li>
+                        <a href="#">
+                            {{ category.subject ~ ' - ' ~ category }}
+                        </a>
+                        <ul>
+                            {% for book in category.books %}
                                 <li>
-                                    <a>المعلومات</a>
+                                    <a href="#">{{ book }}</a>
+                                    <ul>
+                                        <li data-book-id="{{ book.Id }}" class="book_properties">
+                                            <a style="cursor: pointer;">المعلومات</a>
+                                        </li>
+                                        <li>
+                                            <a style="cursor: pointer;">المتابعة</a>
+                                        </li>
+                                        <li>
+                                            <a style="cursor: pointer;">الوحدات</a>
+                                        </li>
+                                        <li>
+                                            <a style="cursor: pointer;">المحتويات</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li>
-                                    <a>المتابعة</a>
-                                </li>
-                                <li>
-                                    <a>الوحدات</a>
-                                </li>
-                                <li>
-                                    <a>المحتوي</a>
-                                </li>
-                            </ul>
-                        </li>
-                    {% endfor %}
+                            {% endfor %}
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
+
+        <div class="span6" id="ajax_container">
+
+        </div>
     </div>
+
+
+    <style>
+        th {text-align: right;}
+    </style>
 {% endblock %}
 
