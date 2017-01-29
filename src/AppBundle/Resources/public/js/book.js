@@ -17,6 +17,15 @@ jQuery(function ($) {
         });
     })
 
+    $('.book_contents').on('click', function (event) {
+        $('<div id="loading-overlay"><img src="/images/preloader.gif" />').prependTo($('body')).show();
+        var book_id = $(this).data('book-id');
+        $.get('/book/view_contents/' + book_id, null, function (data) {
+            $('#loading-overlay').remove();
+            $('#ajax_container').html(data);
+        });
+    })
+
     $(window).load(function () {
 
     })
