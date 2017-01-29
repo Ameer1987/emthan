@@ -48,6 +48,17 @@ class DefaultController extends Controller {
                     'category' => $category,
         ]);
     }
+    
+    /**
+     * @Route("/brovas/{book_id}", name="brovas")
+     */
+    public function trackingAction($book_id, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $book = $em->getRepository('AppBundle:Book')->findOneById($book_id);
+        return $this->render('default/brovas.html.twig', [
+                    'book' => $book,
+        ]);
+    }
 
     /**
      * @Route("/sub_books/{sub_book_id}", name="sub_books")
