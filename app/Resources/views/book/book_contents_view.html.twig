@@ -1,0 +1,40 @@
+<br/>
+<div class="row-fluid">
+    <div class="span11" dir="rtl">
+        <div class="panel panel-info">
+            <div class="panel-heading">وحدات الكتاب</div>
+            <div class="panel-body">
+                <table>
+                    <tbody>
+                        {% for bookUnit in book.BookUnits %}
+                            <tr>
+                                <th>{{ bookUnit.item }}</th>
+                                <td></td>
+                            </tr>
+                            {% for bookContent in bookUnit.bookContents %}
+                                <tr>
+                                    <th>الاسم: </th>
+                                    <td>{{ bookContent.item }}</td>
+                                </tr>
+                                <tr>
+                                    <th>تاريخ الانشاء: </th>
+                                    <td>{% if bookContent.createdAt %}{{ bookContent.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                </tr>
+                                <tr>
+                                    <th>تاريخ اخر تعديل: </th>
+                                    <td>{% if bookContent.updatedAt %}{{ bookContent.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <div class="pull-left">
+                    <button class="btn btn-primary edit-book">اضافة</button>
+                    <button class="btn btn-primary edit-book">تعديل</button>
+                    <button class="btn-danger btn delete-book">حذف</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
