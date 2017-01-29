@@ -10,13 +10,20 @@
                 <ul>
                     {% for book in category.books %}
                         <li>
-                            <a href="#">{{ book }}({{ book.BookType }})</a>
+                            <a href="#">{{ book }}</a>
                             <ul>
-                                {% for subBook in book.subBooks %}
-                                    <li>
-                                        <a href="{{ path('sub_books', { 'sub_book_id': subBook.id }) }}">{{ subBook }}({{ subBook.subBookType }})</a>
-                                    </li>
-                                {% endfor %}
+                                <li>
+                                    <a>المواصفات</a>
+                                </li>
+                                <li>
+                                    <a>المتابعة</a>
+                                </li>
+                                <li>
+                                    <a>الوحدات</a>
+                                </li>
+                                <li>
+                                    <a>المحتوي</a>
+                                </li>
                             </ul>
                         </li>
                     {% endfor %}
