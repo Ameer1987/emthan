@@ -6,7 +6,7 @@
             <div class="panel-body">
                 <table>
                     <tbody>
-                        {% for bookUnit in book.BookUnits %}
+                        {% for bookUnit in book.bookUnits %}
                             <tr>
                                 <th>{{ bookUnit.item }}</th>
                                 <td></td>
@@ -14,15 +14,7 @@
                             {% for bookContent in bookUnit.bookContents %}
                                 <tr>
                                     <th>الاسم: </th>
-                                    <td>{{ bookContent.item }}</td>
-                                </tr>
-                                <tr>
-                                    <th>تاريخ الانشاء: </th>
-                                    <td>{% if bookContent.createdAt %}{{ bookContent.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
-                                </tr>
-                                <tr>
-                                    <th>تاريخ اخر تعديل: </th>
-                                    <td>{% if bookContent.updatedAt %}{{ bookContent.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>&nbsp;{{ bookContent.item }}</td>
                                 </tr>
                             {% endfor %}
                         {% endfor %}
