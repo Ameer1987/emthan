@@ -1,12 +1,25 @@
 /*body{*/
-    /*padding-top: 50px;*/
+/*padding-top: 50px;*/
 /*}*/
 
 /*@media (max-width: 978px) {*/
-    /*body{*/
-        /*padding-top: 0;*/
-    /*}*/
+/*body{*/
+/*padding-top: 0;*/
 /*}*/
+/*}*/
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-color: black;
+    z-index: 9999;
+    color: white;
+    text-align: center;
+    padding-top: 19%
+}
 
 div.border {
     border: 1px solid #DDDDDD;
@@ -238,14 +251,14 @@ input[type="file"] {
 }
 
 .sonata-ba-view-container.history-audit-compare th {
-     width: 10%;
+    width: 10%;
 }
 
 .sonata-ba-view-container.history-audit-compare td {
-     width: 40%;
+    width: 40%;
 }
 .sonata-ba-view-container.history-audit-compare th.diff {
-     background: pink;
+    background: pink;
 }
 
 .container-fluid > .sidebar {
