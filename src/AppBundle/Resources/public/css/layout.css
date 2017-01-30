@@ -403,3 +403,7 @@ body.fixed .content-header .navbar.stuck {
         min-width: 230px; /* width of the left sidebar */
     }
 }
+
+.date_small select {
+    width: 33%;
+}
