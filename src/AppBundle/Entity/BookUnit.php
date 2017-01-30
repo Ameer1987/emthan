@@ -5,8 +5,8 @@ namespace AppBundle\Entity;
 /**
  * BookUnit
  */
-class BookUnit
-{
+class BookUnit {
+
     /**
      * @var string
      */
@@ -28,11 +28,6 @@ class BookUnit
     private $id;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $brovas;
-
-    /**
      * @var \AppBundle\Entity\Book
      */
     private $book;
@@ -47,16 +42,8 @@ class BookUnit
      */
     private $createdBy;
 
-        public function __toString() {
+    public function __toString() {
         return (string) $this->getItem();
-    }
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->brovas = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -66,8 +53,7 @@ class BookUnit
      *
      * @return BookUnit
      */
-    public function setItem($item)
-    {
+    public function setItem($item) {
         $this->item = $item;
 
         return $this;
@@ -78,8 +64,7 @@ class BookUnit
      *
      * @return string
      */
-    public function getItem()
-    {
+    public function getItem() {
         return $this->item;
     }
 
@@ -90,8 +75,7 @@ class BookUnit
      *
      * @return BookUnit
      */
-    public function setCreatedAt($createdAt)
-    {
+    public function setCreatedAt($createdAt) {
         $this->createdAt = $createdAt;
 
         return $this;
@@ -102,8 +86,7 @@ class BookUnit
      *
      * @return \DateTime
      */
-    public function getCreatedAt()
-    {
+    public function getCreatedAt() {
         return $this->createdAt;
     }
 
@@ -114,8 +97,7 @@ class BookUnit
      *
      * @return BookUnit
      */
-    public function setUpdatedAt($updatedAt)
-    {
+    public function setUpdatedAt($updatedAt) {
         $this->updatedAt = $updatedAt;
 
         return $this;
@@ -126,8 +108,7 @@ class BookUnit
      *
      * @return \DateTime
      */
-    public function getUpdatedAt()
-    {
+    public function getUpdatedAt() {
         return $this->updatedAt;
     }
 
@@ -136,43 +117,8 @@ class BookUnit
      *
      * @return integer
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
-    }
-
-    /**
-     * Add brova
-     *
-     * @param \AppBundle\Entity\Brova $brova
-     *
-     * @return BookUnit
-     */
-    public function addBrova(\AppBundle\Entity\Brova $brova)
-    {
-        $this->brovas[] = $brova;
-
-        return $this;
-    }
-
-    /**
-     * Remove brova
-     *
-     * @param \AppBundle\Entity\Brova $brova
-     */
-    public function removeBrova(\AppBundle\Entity\Brova $brova)
-    {
-        $this->brovas->removeElement($brova);
-    }
-
-    /**
-     * Get brovas
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getBrovas()
-    {
-        return $this->brovas;
     }
 
     /**
@@ -182,8 +128,7 @@ class BookUnit
      *
      * @return BookUnit
      */
-    public function setBook(\AppBundle\Entity\Book $book = null)
-    {
+    public function setBook(\AppBundle\Entity\Book $book = null) {
         $this->book = $book;
 
         return $this;
@@ -194,8 +139,7 @@ class BookUnit
      *
      * @return \AppBundle\Entity\Book
      */
-    public function getBook()
-    {
+    public function getBook() {
         return $this->book;
     }
 
@@ -206,8 +150,7 @@ class BookUnit
      *
      * @return BookUnit
      */
-    public function setUpdatedBy(\AppBundle\Entity\User $updatedBy = null)
-    {
+    public function setUpdatedBy(\AppBundle\Entity\User $updatedBy = null) {
         $this->updatedBy = $updatedBy;
 
         return $this;
@@ -218,8 +161,7 @@ class BookUnit
      *
      * @return \AppBundle\Entity\User
      */
-    public function getUpdatedBy()
-    {
+    public function getUpdatedBy() {
         return $this->updatedBy;
     }
 
@@ -230,8 +172,7 @@ class BookUnit
      *
      * @return BookUnit
      */
-    public function setCreatedBy(\AppBundle\Entity\User $createdBy = null)
-    {
+    public function setCreatedBy(\AppBundle\Entity\User $createdBy = null) {
         $this->createdBy = $createdBy;
 
         return $this;
@@ -242,15 +183,22 @@ class BookUnit
      *
      * @return \AppBundle\Entity\User
      */
-    public function getCreatedBy()
-    {
+    public function getCreatedBy() {
         return $this->createdBy;
     }
+
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $bookContents;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->bookContents = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Add bookContent
