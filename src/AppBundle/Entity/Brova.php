@@ -314,10 +314,11 @@ class Brova
     {
         return $this->responsibility;
     }
+  
     /**
      * @var \AppBundle\Entity\BookContent
      */
-    private $BookContent;
+    private $bookContent;
 
 
     /**
@@ -329,7 +330,7 @@ class Brova
      */
     public function setBookContent(\AppBundle\Entity\BookContent $bookContent = null)
     {
-        $this->BookContent = $bookContent;
+        $this->bookContent = $bookContent;
 
         return $this;
     }
@@ -341,6 +342,6 @@ class Brova
      */
     public function getBookContent()
     {
-        return $this->BookContent;
+        return $this->bookContent;
     }
 }
