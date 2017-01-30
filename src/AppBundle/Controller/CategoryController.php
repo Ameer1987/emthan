@@ -135,21 +135,24 @@ class CategoryController extends Controller {
      * @Route("/add_book/{category_id}", name="category_add_book")
      * @Method({"GET", "POST"})
      */
-    public function addBookAction(Request $request) {
+    public function addBookAction($category_id, Request $request) {
         $book = new \AppBundle\Entity\Book();
         $form = $this->createForm('AppBundle\Form\BookType', $book);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
             $em = $this->getDoctrine()->getManager();
+            $category = $em->getRepository('AppBundle:Category')->findOneById($category_id);
+            $book->setCategory($category);
             $em->persist($book);
             $em->flush($book);
 
-            return $this->redirectToRoute('book_show', array('id' => $book->getId()));
+            return $this->redirect($request->headers->get('referer'));
         }
 
         return $this->render('category/add_book.html.twig', array(
                     'book' => $book,
+                    'category_id' => $category_id,
                     'form' => $form->createView(),
         ));
     }
