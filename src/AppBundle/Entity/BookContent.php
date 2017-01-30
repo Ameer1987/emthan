@@ -33,11 +33,6 @@ class BookContent
     private $brovas;
 
     /**
-     * @var \AppBundle\Entity\BookUnit
-     */
-    private $book_unit;
-
-    /**
      * @var \AppBundle\Entity\User
      */
     private $updatedBy;
@@ -177,30 +172,6 @@ class BookContent
     }
 
     /**
-     * Set bookUnit
-     *
-     * @param \AppBundle\Entity\BookUnit $bookUnit
-     *
-     * @return BookContent
-     */
-    public function setBookUnit(\AppBundle\Entity\BookUnit $bookUnit = null)
-    {
-        $this->book_unit = $bookUnit;
-
-        return $this;
-    }
-
-    /**
-     * Get bookUnit
-     *
-     * @return \AppBundle\Entity\BookUnit
-     */
-    public function getBookUnit()
-    {
-        return $this->book_unit;
-    }
-
-    /**
      * Set updatedBy
      *
      * @param \AppBundle\Entity\User $updatedBy
@@ -246,5 +217,34 @@ class BookContent
     public function getCreatedBy()
     {
         return $this->createdBy;
+    }
+    /**
+     * @var \AppBundle\Entity\BookUnit
+     */
+    private $bookUnit;
+
+
+    /**
+     * Set bookUnit
+     *
+     * @param \AppBundle\Entity\BookUnit $bookUnit
+     *
+     * @return BookContent
+     */
+    public function setBookUnit(\AppBundle\Entity\BookUnit $bookUnit = null)
+    {
+        $this->bookUnit = $bookUnit;
+
+        return $this;
+    }
+
+    /**
+     * Get bookUnit
+     *
+     * @return \AppBundle\Entity\BookUnit
+     */
+    public function getBookUnit()
+    {
+        return $this->bookUnit;
     }
 }
