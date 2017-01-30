@@ -5,29 +5,29 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Category controller.
  *
  * @Route("category")
  */
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
+
     /**
      * Lists all category entities.
      *
      * @Route("/", name="category_index")
      * @Method("GET")
      */
-    public function indexAction()
-    {
+    public function indexAction() {
         $em = $this->getDoctrine()->getManager();
 
         $categories = $em->getRepository('AppBundle:Category')->findAll();
 
         return $this->render('category/index.html.twig', array(
-            'categories' => $categories,
+                    'categories' => $categories,
         ));
     }
 
@@ -37,8 +37,7 @@ class CategoryController extends Controller
      * @Route("/new", name="category_new")
      * @Method({"GET", "POST"})
      */
-    public function newAction(Request $request)
-    {
+    public function newAction(Request $request) {
         $category = new Category();
         $form = $this->createForm('AppBundle\Form\CategoryType', $category);
         $form->handleRequest($request);
@@ -52,8 +51,8 @@ class CategoryController extends Controller
         }
 
         return $this->render('category/new.html.twig', array(
-            'category' => $category,
-            'form' => $form->createView(),
+                    'category' => $category,
+                    'form' => $form->createView(),
         ));
     }
 
@@ -63,13 +62,12 @@ class CategoryController extends Controller
      * @Route("/{id}", name="category_show")
      * @Method("GET")
      */
-    public function showAction(Category $category)
-    {
+    public function showAction(Category $category) {
         $deleteForm = $this->createDeleteForm($category);
 
         return $this->render('category/show.html.twig', array(
-            'category' => $category,
-            'delete_form' => $deleteForm->createView(),
+                    'category' => $category,
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -79,8 +77,7 @@ class CategoryController extends Controller
      * @Route("/{id}/edit", name="category_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Category $category)
-    {
+    public function editAction(Request $request, Category $category) {
         $deleteForm = $this->createDeleteForm($category);
         $editForm = $this->createForm('AppBundle\Form\CategoryType', $category);
         $editForm->handleRequest($request);
@@ -92,9 +89,9 @@ class CategoryController extends Controller
         }
 
         return $this->render('category/edit.html.twig', array(
-            'category' => $category,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
+                    'category' => $category,
+                    'edit_form' => $editForm->createView(),
+                    'delete_form' => $deleteForm->createView(),
         ));
     }
 
@@ -104,8 +101,7 @@ class CategoryController extends Controller
      * @Route("/{id}", name="category_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Category $category)
-    {
+    public function deleteAction(Request $request, Category $category) {
         $form = $this->createDeleteForm($category);
         $form->handleRequest($request);
 
@@ -125,12 +121,37 @@ class CategoryController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Category $category)
-    {
+    private function createDeleteForm(Category $category) {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('category_delete', array('id' => $category->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
+                        ->setAction($this->generateUrl('category_delete', array('id' => $category->getId())))
+                        ->setMethod('DELETE')
+                        ->getForm()
         ;
     }
+
+    /**
+     * Creates a form to add a book entity.
+     *
+     * @Route("/add_book/{category_id}", name="category_add_book")
+     * @Method({"GET", "POST"})
+     */
+    public function addBookAction(Request $request) {
+        $book = new \AppBundle\Entity\Book();
+        $form = $this->createForm('AppBundle\Form\BookType', $book);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($book);
+            $em->flush($book);
+
+            return $this->redirectToRoute('book_show', array('id' => $book->getId()));
+        }
+
+        return $this->render('category/add_book.html.twig', array(
+                    'book' => $book,
+                    'form' => $form->createView(),
+        ));
+    }
+
 }
