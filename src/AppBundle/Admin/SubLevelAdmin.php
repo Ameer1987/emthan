@@ -7,30 +7,27 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class SubLevelAdmin extends AbstractAdmin
-{
-    
-    protected function configureFormFields(FormMapper $formMapper)
-    {
+class SubLevelAdmin extends AbstractAdmin {
+
+    protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
                 ->add('item', 'text')
                 ->add('level', 'entity', array(
                     'class' => 'AppBundle\Entity\Level',
-                    'group_by' => 'term'
+                    'group_by' => function($val, $key, $index) {
+                        return $val->getTerm()->getYear()
+                                . ' - ' . $val->getTerm();
+                    }
                 ))
-                ;
+        ;
     }
 
-    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
-    {
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper) {
         $datagridMapper->add('item')->add('level');
     }
 
-    protected function configureListFields(ListMapper $listMapper)
-    {
+    protected function configureListFields(ListMapper $listMapper) {
         $listMapper->addIdentifier('item')->addIdentifier('level');
     }
-    
-  
 
 }
