@@ -1,0 +1,65 @@
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+
+{% block sonata_page_content %}
+    <div class="row-fluid">
+        <div class="span12">
+            <div class="tree" style="display: none;">
+                <ul>
+                    <li>
+                        <a href="#">
+                            {{ book.Item }}
+                        </a>
+
+                        <style type="text/css">
+                            .tg  {border-collapse:collapse;border-spacing:0;border-color:#aaa;border:none;}
+                            .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aaa;color:#333;background-color:#fff;}
+                            .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-color:#aaa;color:#fff;background-color:#f38630;}
+                            .tg .tg-j2zy{background-color:#FCFBE3;vertical-align:top}
+                            .tg .tg-yw4l{vertical-align:top}
+                        </style>
+                        <table class="tg center-block" >
+                            <tr>
+                                <th class="tg-yw4l">تسليم ب 7<br></th>
+                                <th class="tg-yw4l">تسليم ب 7</th>
+                                <th class="tg-yw4l">تسليم ب 6</th>
+                                <th class="tg-yw4l">تسليم ب 6</th>
+                                <th class="tg-yw4l">تسليم ب 5</th>
+                                <th class="tg-yw4l">تسليم ب 5</th>
+                                <th class="tg-yw4l">تسلم ب 4</th>
+                                <th class="tg-yw4l">تسليم ب 4</th>
+                                <th class="tg-yw4l">تسلم ب 3</th>
+                                <th class="tg-yw4l">تسليم ب 3</th>
+                                <th class="tg-yw4l">تسلم ب 2</th>
+                                <th class="tg-yw4l">تسليم ب 2</th>
+                                <th class="tg-yw4l">تسلم ب 1</th>
+                                <th class="tg-yw4l">تسليم ب 1</th>
+                                <th class="tg-yw4l">المحتويات<br></th>
+                            </tr>
+                            {% for BookUnit in book.BookUnits%}
+                                <tr>
+                                    <td class="">{{BookUnit.Item}}</td>
+                                </tr>
+                                {% for BookContent in BookUnit.BookContents%}
+                                    <tr>
+                                        <td class="">{{BookContent.Id}}</td>
+                                    </tr>
+                                {% endfor %}
+                            {% endfor %}
+                        </table>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="span6" id="ajax_container">
+
+        </div>
+    </div>
+
+
+{#    <style>
+        th {text-align: right;}
+    </style>#}
+{% endblock %}
+
