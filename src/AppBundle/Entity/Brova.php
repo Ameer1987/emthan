@@ -53,11 +53,6 @@ class Brova
     private $createdBy;
 
     /**
-     * @var \AppBundle\Entity\SubBook
-     */
-    private $subBook;
-
-    /**
      * @var \AppBundle\Entity\Employee
      */
     private $responsibility;
@@ -265,30 +260,6 @@ class Brova
     public function getCreatedBy()
     {
         return $this->createdBy;
-    }
-
-    /**
-     * Set subBook
-     *
-     * @param \AppBundle\Entity\SubBook $subBook
-     *
-     * @return Brova
-     */
-    public function setSubBook(\AppBundle\Entity\SubBook $subBook = null)
-    {
-        $this->subBook = $subBook;
-
-        return $this;
-    }
-
-    /**
-     * Get subBook
-     *
-     * @return \AppBundle\Entity\SubBook
-     */
-    public function getSubBook()
-    {
-        return $this->subBook;
     }
 
     /**
