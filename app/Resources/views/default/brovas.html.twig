@@ -19,29 +19,29 @@
                         </style>
                         <table class="tg center-block" >
                             <tr>
-                                <th class="tg-yw4l">تسليم ب 7<br></th>
-                                <th class="tg-yw4l">تسليم ب 7</th>
-                                <th class="tg-yw4l">تسليم ب 6</th>
-                                <th class="tg-yw4l">تسليم ب 6</th>
-                                <th class="tg-yw4l">تسليم ب 5</th>
-                                <th class="tg-yw4l">تسليم ب 5</th>
-                                <th class="tg-yw4l">تسلم ب 4</th>
-                                <th class="tg-yw4l">تسليم ب 4</th>
-                                <th class="tg-yw4l">تسلم ب 3</th>
-                                <th class="tg-yw4l">تسليم ب 3</th>
-                                <th class="tg-yw4l">تسلم ب 2</th>
-                                <th class="tg-yw4l">تسليم ب 2</th>
-                                <th class="tg-yw4l">تسلم ب 1</th>
-                                <th class="tg-yw4l">تسليم ب 1</th>
                                 <th class="tg-yw4l">المحتويات<br></th>
+                                <th class="tg-yw4l">تسليم ب 1</th>
+                                <th class="tg-yw4l">تسلم ب 1</th>
+                                <th class="tg-yw4l">تسليم ب 2</th>
+                                <th class="tg-yw4l">تسلم ب 2</th>
+                                <th class="tg-yw4l">تسليم ب 3</th>
+                                <th class="tg-yw4l">تسلم ب 3</th>
+                                <th class="tg-yw4l">تسليم ب 4</th>
+                                <th class="tg-yw4l">تسلم ب 4</th>
+                                <th class="tg-yw4l">تسليم ب 5</th>
+                                <th class="tg-yw4l">تسلم ب 5</th>
+                                <th class="tg-yw4l">تسليم ب 6</th>
+                                <th class="tg-yw4l">تسلم ب 6</th>
+                                <th class="tg-yw4l">تسليم ب 7<br></th>
+                                <th class="tg-yw4l">تسلم ب 7</th>
                             </tr>
                             {% for BookUnit in book.BookUnits%}
                                 <tr>
                                     <td class="">{{BookUnit.Item}}</td>
                                 </tr>
                                 {% for BookContent in BookUnit.BookContents%}
-                                    <tr>
-                                        <td class="">{{BookContent.Id}}</td>
+                                    <tr class="bg-yellow">
+                                        <td class="">{{BookContent.Item}}</td>
                                     </tr>
                                 {% endfor %}
                             {% endfor %}
