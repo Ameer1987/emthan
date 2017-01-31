@@ -2,7 +2,7 @@
 
 {% block sonata_page_content %}
     <div class="row-fluid">
-        <div class="span12">
+        <div class="span12" dir="rtl">
             <div class="tree" style="display: none;">
                 <ul>
                     <li>
@@ -42,6 +42,31 @@
                                 {% for BookContent in BookUnit.BookContents%}
                                     <tr class="bg-yellow">
                                         <td class="">{{BookContent.Item}}</td>
+                                        {% for Brova in BookContent.Brovas%}
+                                            <td class="">
+                                                {{Brova.SentDate |date('Y-m-d H:i:s')}}
+                                                <div class="pull-left">
+                                                    <button class="btn btn-primary edit-book">تعديل</button>
+                                                    <button class="btn-danger btn delete-book">حذف</button>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                {{Brova.ExpectedDate |date('Y-m-d H:i:s')}}
+                                                <div class="pull-left">
+                                                    <button class="btn btn-primary edit-book">تعديل</button>
+                                                    <button class="btn-danger btn delete-book">حذف</button>
+                                                </div>
+                                            </td>
+                                            {% if loop.last%}
+                                                <td>
+                                                    <button class="btn btn-primary edit-book">اضافة</button>
+                                                </td>
+                                            {% endif %}
+                                        {% else %}
+                                            <td>
+                                                <button class="btn btn-primary edit-book">اضافة</button>
+                                            </td>
+                                        {% endfor %}
                                     </tr>
                                 {% endfor %}
                             {% endfor %}
@@ -57,9 +82,5 @@
         </div>
     </div>
 
-
-{#    <style>
-        th {text-align: right;}
-    </style>#}
 {% endblock %}
 
