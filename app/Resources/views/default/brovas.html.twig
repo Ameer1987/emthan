@@ -2,7 +2,7 @@
 
 {% block sonata_page_content %}
     <div class="row-fluid">
-        <div class="span12">
+        <div class="span12" dir="rtl">
             <div class="tree" style="display: none;">
                 <ul>
                     <li>
@@ -19,29 +19,54 @@
                         </style>
                         <table class="tg center-block" >
                             <tr>
-                                <th class="tg-yw4l">تسليم ب 7<br></th>
-                                <th class="tg-yw4l">تسليم ب 7</th>
-                                <th class="tg-yw4l">تسليم ب 6</th>
-                                <th class="tg-yw4l">تسليم ب 6</th>
-                                <th class="tg-yw4l">تسليم ب 5</th>
-                                <th class="tg-yw4l">تسليم ب 5</th>
-                                <th class="tg-yw4l">تسلم ب 4</th>
-                                <th class="tg-yw4l">تسليم ب 4</th>
-                                <th class="tg-yw4l">تسلم ب 3</th>
-                                <th class="tg-yw4l">تسليم ب 3</th>
-                                <th class="tg-yw4l">تسلم ب 2</th>
-                                <th class="tg-yw4l">تسليم ب 2</th>
-                                <th class="tg-yw4l">تسلم ب 1</th>
-                                <th class="tg-yw4l">تسليم ب 1</th>
                                 <th class="tg-yw4l">المحتويات<br></th>
+                                <th class="tg-yw4l">تسليم ب 1</th>
+                                <th class="tg-yw4l">تسلم ب 1</th>
+                                <th class="tg-yw4l">تسليم ب 2</th>
+                                <th class="tg-yw4l">تسلم ب 2</th>
+                                <th class="tg-yw4l">تسليم ب 3</th>
+                                <th class="tg-yw4l">تسلم ب 3</th>
+                                <th class="tg-yw4l">تسليم ب 4</th>
+                                <th class="tg-yw4l">تسلم ب 4</th>
+                                <th class="tg-yw4l">تسليم ب 5</th>
+                                <th class="tg-yw4l">تسلم ب 5</th>
+                                <th class="tg-yw4l">تسليم ب 6</th>
+                                <th class="tg-yw4l">تسلم ب 6</th>
+                                <th class="tg-yw4l">تسليم ب 7<br></th>
+                                <th class="tg-yw4l">تسلم ب 7</th>
                             </tr>
                             {% for BookUnit in book.BookUnits%}
                                 <tr>
                                     <td class="">{{BookUnit.Item}}</td>
                                 </tr>
                                 {% for BookContent in BookUnit.BookContents%}
-                                    <tr>
-                                        <td class="">{{BookContent.Id}}</td>
+                                    <tr class="bg-yellow">
+                                        <td class="">{{BookContent.Item}}</td>
+                                        {% for Brova in BookContent.Brovas%}
+                                            <td class="">
+                                                {{Brova.SentDate |date('Y-m-d H:i:s')}}
+                                                <div class="pull-left">
+                                                    <button class="btn btn-primary edit-book">تعديل</button>
+                                                    <button class="btn-danger btn delete-book">حذف</button>
+                                                </div>
+                                            </td>
+                                            <td class="">
+                                                {{Brova.ExpectedDate |date('Y-m-d H:i:s')}}
+                                                <div class="pull-left">
+                                                    <button class="btn btn-primary edit-book">تعديل</button>
+                                                    <button class="btn-danger btn delete-book">حذف</button>
+                                                </div>
+                                            </td>
+                                            {% if loop.last%}
+                                                <td>
+                                                    <button class="btn btn-primary edit-book">اضافة</button>
+                                                </td>
+                                            {% endif %}
+                                        {% else %}
+                                            <td>
+                                                <button class="btn btn-primary edit-book">اضافة</button>
+                                            </td>
+                                        {% endfor %}
                                     </tr>
                                 {% endfor %}
                             {% endfor %}
@@ -57,9 +82,5 @@
         </div>
     </div>
 
-
-{#    <style>
-        th {text-align: right;}
-    </style>#}
 {% endblock %}
 

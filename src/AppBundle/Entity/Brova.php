@@ -52,6 +52,7 @@ class Brova
      */
     private $createdBy;
 
+    
     /**
      * @var \AppBundle\Entity\Employee
      */
@@ -262,6 +263,9 @@ class Brova
         return $this->createdBy;
     }
 
+    
+
+    
     /**
      * Set responsibility
      *
