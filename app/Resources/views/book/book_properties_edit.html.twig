@@ -1,5 +1,5 @@
 <br/>
-<form action="/book/edit_properties/{{ book.Id }}" method="POST">
+<form id="save-book-form" action="/book/edit_properties/{{ book.Id }}" method="POST">
     <div class="row-fluid">
         <div class="span11" dir="rtl">
             <div class="panel panel-info">
@@ -38,11 +38,12 @@
                             <th>المسئول: </th>
                             <td>{{ form_widget(form.responsibility) }}</td>
                         </tr>
+                        <input type="hidden" value="{{ book.category.id }}" id="appbundle_book_category" name="appbundle_book[category]" />
                     </table>
 
                     <div class="pull-left">
-                        <button data-book-id="{{ book.Id }}" class="btn btn-primary edit-book">حفظ</button>
-                        <button data-book-id="{{ book.Id }}" class="btn-info btn delete-book">الغاء</button>
+                        <button type="button" data-book-id="{{ book.Id }}" class="btn btn-primary save-book">حفظ</button>
+                        <button type="button" data-book-id="{{ book.Id }}" class="btn-info btn cancel-save-book">الغاء</button>
                     </div>
                 </div>
             </div>
