@@ -161,7 +161,7 @@ class BookController extends Controller {
             $em->persist($book);
             $em->flush($book);
 
-            return $this->redirect($request->headers->get('referer'));
+            return $this->redirect($this->generateUrl('book_view_properties', array('id' => $book->getId())));
         }
 
         return $this->render('book/book_properties_edit.html.twig', array(
