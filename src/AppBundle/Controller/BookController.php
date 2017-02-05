@@ -146,6 +146,31 @@ class BookController extends Controller {
     }
 
     /**
+     * Creates a form to edit a book entity.
+     *
+     * @Route("/edit_properties/{book_id}", name="book_properties_edit")
+     * @Method({"GET", "POST"})
+     */
+    public function editBookPropertiesAction($book_id, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $book = $em->getRepository('AppBundle:Book')->findOneById($book_id);
+        $form = $this->createForm('AppBundle\Form\BookType', $book);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $em->persist($book);
+            $em->flush($book);
+
+            return $this->redirect($request->headers->get('referer'));
+        }
+
+        return $this->render('book/book_properties_edit.html.twig', array(
+                    'book' => $book,
+                    'form' => $form->createView(),
+        ));
+    }
+
+    /**
      * Lists all book entities.
      *
      * @Route("/view_units/{id}", name="book_view_units")
