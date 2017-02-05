@@ -77,4 +77,15 @@ jQuery(function ($) {
             $('#ajax_container').html(data);
         });
     })
+
+    $('#ajax_container').on('click', '.delete-book', function () {
+        var confirmed = confirm("هل تريد حذف الكتاب ؟");
+        if (confirmed) {
+            $('<div id="loading-overlay"><img src="/images/preloader.gif" />').prependTo($('body')).show();
+            var book_id = $(this).data('book-id');
+            $.post('/book/delete/' + book_id, null, function (data) {
+                location.reload();
+            });
+        }
+    })
 })
