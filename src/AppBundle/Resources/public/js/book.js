@@ -44,7 +44,28 @@ jQuery(function ($) {
         });
     })
 
-    $(window).load(function () {
+    $('#ajax_container').on('click', '.save-book', function () {
+        $('<div id="loading-overlay"><img src="/images/preloader.gif" />').prependTo($('body')).show();
 
+        var form = $('#save-book-form');
+        var formData = new FormData(form[0]);
+        var formAction = form.attr('action');
+
+        $.ajax({
+            url: formAction,
+            type: 'POST',
+            data: formData,
+            success: function (data) {
+                $('#loading-overlay').remove();
+                $('#ajax_container').html(data);
+            },
+            cache: false,
+            contentType: false,
+            processData: false
+        });
+
+        $(window).load(function () {
+
+        })
     })
 })
