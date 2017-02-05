@@ -171,6 +171,21 @@ class BookController extends Controller {
     }
 
     /**
+     * Deletes a book entity.
+     *
+     * @Route("/delete/{book_id}", name="ajax_book_delete")
+     * @Method("POST")
+     */
+    public function deleteBookAjaxAction($book_id, Request $request) {
+        $em = $this->getDoctrine()->getManager();
+        $book = $em->getRepository('AppBundle:Book')->findOneById($book_id);
+        $em->remove($book);
+        $em->flush($book);
+
+        return new \Symfony\Component\HttpFoundation\Response('success');
+    }
+
+    /**
      * Lists all book entities.
      *
      * @Route("/view_units/{id}", name="book_view_units")
