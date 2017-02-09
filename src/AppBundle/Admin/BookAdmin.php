@@ -16,10 +16,19 @@ class BookAdmin extends AbstractAdmin {
                 ->add('price', 'text', array('label' => 'price'))
                 ->add('color', 'text', array('label' => 'color'))
                 ->add('pages', 'text', array('label' => 'pages'))
-                ->add('sentToPrintDate', 'datetime', array('label' => 'sentToPrintDate'))
-                ->add('finishPrintDate', 'datetime', array('label' => 'finishPrintDate'))
-                ->add('responsibility', 'entity', array(
-                    'class' => 'AppBundle\Entity\Employee'
+                ->add('sentToPrintDate', 'sonata_type_date_picker', array('label' => 'sentToPrintDate'))
+                ->add('finishPrintDate', 'sonata_type_date_picker', array('label' => 'finishPrintDate'))
+                ->add('responsibility1', 'entity', array(
+                    'class' => 'AppBundle\Entity\Employee',
+                    'label' => 'responsibility1'
+                ))
+                ->add('responsibility2', 'entity', array(
+                    'class' => 'AppBundle\Entity\Employee',
+                    'label' => 'responsibility2'
+                ))
+                ->add('responsibility3', 'entity', array(
+                    'class' => 'AppBundle\Entity\Employee',
+                    'label' => 'responsibility3'
                 ))
                 ->add('category', 'entity', array(
                     'class' => 'AppBundle\Entity\Category',
@@ -34,11 +43,11 @@ class BookAdmin extends AbstractAdmin {
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper) {
-        $datagridMapper->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('responsibility')->add('category');
+        $datagridMapper->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('responsibility1')->add('responsibility2')->add('responsibility3')->add('category');
     }
 
     protected function configureListFields(ListMapper $listMapper) {
-        $listMapper->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('responsibility')->add('category');
+        $listMapper->add('item')->add('price')->add('color')->add('pages')->add('sentToPrintDate')->add('finishPrintDate')->add('responsibility1')->add('responsibility2')->add('responsibility3')->add('category');
     }
 
     /**
