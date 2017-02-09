@@ -27,6 +27,18 @@
                             <td>{{ book.pages }}</td>
                         </tr>
                         <tr>
+                            <th>الرسام</th>
+                            <td>{{ book.responsibility1 }}</td>
+                        </tr>
+                        <tr>
+                            <th>الكاتب</th>
+                            <td>{{ book.responsibility2 }}</td>
+                        </tr>
+                        <tr>
+                            <th>المصمم</th>
+                            <td>{{ book.responsibility3 }}</td>
+                        </tr>
+                        <tr>
                             <th>تاريخ الارسال الي الطباعة: </th>
                             <td>{% if book.sentToPrintDate %}{{ book.sentToPrintDate|date('Y-m-d H:i:s') }}{% endif %}</td>
                         </tr>
