@@ -46,10 +46,7 @@
                             <th>تاريخ الانتهاء من الطباعة: </th>
                             <td>{{ form_widget(form.finishPrintDate, { 'attr' : {'class' : 'date_small' } }) }}</td>
                         </tr>
-                        <tr>
-                            <th>المسئول: </th>
-                            <td>{{ form_widget(form.responsibility) }}</td>
-                        </tr>
+                        
                         <input type="hidden" value="{{ book.category.id }}" id="appbundle_book_category" name="appbundle_book[category]" />
                     </table>
 
