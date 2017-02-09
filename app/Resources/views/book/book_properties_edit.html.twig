@@ -27,6 +27,18 @@
                             <td>{{ form_widget(form.pages) }}</td>
                         </tr>
                         <tr>
+                            <th>الرسام</th>
+                            <td>{{ form_widget(form.responsibility1) }}</td>
+                        </tr>
+                        <tr>
+                            <th>الكاتب</th>
+                            <td>{{ form_widget(form.responsibility2) }}</td>
+                        </tr>
+                        <tr>
+                            <th>المصمم</th>
+                            <td>{{ form_widget(form.responsibility3) }}</td>
+                        </tr>
+                        <tr>
                             <th>تاريخ الارسال الي الطباعة: </th>
                             <td>{{ form_widget(form.sentToPrintDate, { 'attr' : {'class' : 'date_small' } }) }}</td>
                         </tr>
