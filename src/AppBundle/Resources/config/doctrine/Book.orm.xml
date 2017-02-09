@@ -3,8 +3,9 @@
     <entity name="AppBundle\Entity\Book" table="book">
         <indexes>
             <index name="category_id" columns="category_id"/>
-            <index name="responsibility_id" columns="responsibility_id"/>
-            
+            <index name="responsibility1_id" columns="responsibility1_id"/>
+            <index name="responsibility2_id" columns="responsibility2_id"/>
+            <index name="responsibility3_id" columns="responsibility3_id"/>
             <index name="created_by" columns="created_by"/>
             <index name="updated_by" columns="updated_by"/>
         </indexes>
@@ -45,12 +46,21 @@
                 <join-column name="category_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        <many-to-one field="responsibility" target-entity="Employee" fetch="LAZY">
+        <many-to-one field="responsibility1" target-entity="Employee" fetch="LAZY">
             <join-columns>
-                <join-column name="responsibility_id" referenced-column-name="id"/>
+                <join-column name="responsibility1_id" referenced-column-name="id"/>
             </join-columns>
         </many-to-one>
-        
+        <many-to-one field="responsibility2" target-entity="Employee" fetch="LAZY">
+            <join-columns>
+                <join-column name="responsibility2_id" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
+        <many-to-one field="responsibility3" target-entity="Employee" fetch="LAZY">
+            <join-columns>
+                <join-column name="responsibility3_id" referenced-column-name="id"/>
+            </join-columns>
+        </many-to-one>
         <many-to-one field="createdBy" target-entity="User" fetch="LAZY">
             <join-columns>
                 <join-column name="created_by" referenced-column-name="id"/>
